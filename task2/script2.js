@@ -13,7 +13,7 @@
           if (str.length == 0) {
               box.innerHTML = `<b><font size="13" color="blue">Строка пустая!</font></b>`
           } else {
-              let normalized = str.toLowerCase().match(/[a-z]/gi).reverse();
+              let normalized = str.toLowerCase().match(/[a-z а-я 1-9]/gi).reverse();
               return normalized.join('') === normalized.reverse().join('');
           }
       }
@@ -21,7 +21,9 @@
       let mainTask = ce("p",
           `Дана строка S.
       Определить, является ли она полиндромом.
-      Замечание: полиндромом называются строки, которые одинаково читаются как слева-направо, так и справа-налево.`
+      Замечание: полиндромом называются строки, которые одинаково читаются как слева-направо, так и справа-налево.
+      
+      `
       );
       document.body.prepend(mainTask);
 
@@ -35,11 +37,12 @@
           e.preventDefault();
           let strText = form.elements[0].value.trim();          
           if (palindrome(strText) == true) {
-              box.innerHTML = `<b><font size="13" color="green">Строка является полиндромом!</font></b>`
+              box.innerHTML = `<b><font size="13" color="green">Строка является полиндромом!</font></b>             `
           } else if (strText.length == 0) {
               box.innerHTML = `<b><font size="13" color="blue">Строка пустая!</font></b>`
           } else {
-              box.innerHTML = `<b><font size="13" color="red">Строка не является полиндромом</font></b>`
+              box.innerHTML = `<b><font size="13" color="red">Строка не является полиндромом</font></b>
+              `
           }         
       });
   }
