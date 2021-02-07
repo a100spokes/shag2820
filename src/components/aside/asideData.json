@@ -1,0 +1,27 @@
+[
+    {
+      "id" : "1",
+      "title" : "Home",      
+      "active" : "active",
+      "bg":"#feffd7",
+      "url" : "#side 1"
+    },
+    {
+      "id" : "2",
+      "url" : "#side 2",
+      "title" : "Shop"
+      
+    },
+    {
+      "id" : "3",
+      "url" : "#side 3",
+      "title" : "Contacts"
+      
+    },
+    {
+      "id" : "4",
+      "url" : "#side 4",
+      "title" : "About"
+  
+    }
+  ]
