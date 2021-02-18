@@ -3,6 +3,7 @@ import Logo from "@comp/logo/Logo";
 import { Row, Col, Button } from 'reactstrap';
 import Confirm from "@comp/confirm/Confirm";
 import AddPostItemForm from "@elems/forms/AddPostItemForm";
+import "./style.scss";
 
 export default function Header() {
 
@@ -13,8 +14,9 @@ export default function Header() {
             <Col lg={4}>
                 <Logo bgColor={"#ccc"} text={"logo"} />
             </Col>
-            <Col lg={8}>
-                <Button color={"success"} onClick={toggleModal}>Add</Button>
+            <Col lg={7}></Col>
+            <Col lg={1}>
+                <Button className="add" color={"warning"} onClick={toggleModal}>Add</Button>
             </Col>
             <Confirm
                 active={modal}

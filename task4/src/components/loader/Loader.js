@@ -1,17 +1,9 @@
-import React from 'react';
-import './Loader.style.scss';
+import React from "react";
+import "./Loader.style.scss"
 
 export default function Loader() {
-  return (
-    <div className="lds-roller">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  );
+
+    return(
+        <div class="lds-facebook"><div></div><div></div><div></div></div>
+    )
 }

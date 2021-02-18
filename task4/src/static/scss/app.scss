@@ -1,6 +1,7 @@
-@import './../fonts/stylesheet.css';
-@import '~bootstrap/scss/bootstrap';
-$primary-color: #ccc;
+
+@import "./../fonts/stylesheet.css";
+@import "~bootstrap/scss/bootstrap";
+$primary-color: #2a2c2e;
 body {
   background: $primary-color;
 }
@@ -8,7 +9,11 @@ body {
 header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between;  
+  
+  /* .logo {
+    background: #f3f3f3;
+  } */
 
   .menu {
     background: #ddd;

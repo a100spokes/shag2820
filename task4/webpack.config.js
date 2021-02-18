@@ -109,8 +109,7 @@ const config = {
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
         compress: true,
-        port: 9000,
-        historyApiFallback: true
+        port: 9000
     },
 
     devtool: process.env.MODE==="development" ? "eval" : false,
@@ -144,8 +143,7 @@ const config = {
             "@images": path.resolve(__dirname, 'src/static/images/'),
             "@static": path.resolve(__dirname, 'src/static/'),
             "@elems": path.resolve(__dirname, 'src/elements/'),
-            "@comp": path.resolve(__dirname, 'src/components/'),
-            "@pages": path.resolve(__dirname, 'src/pages/')
+            "@comp": path.resolve(__dirname, 'src/components/')
         }
     }
 }
