@@ -4,7 +4,25 @@ import { Button, Modal, ModalHeader, ModalBody, Row,Col } from 'reactstrap';
 const Confirm = (props) => {
 
     const {ok, message, active , cancel} = props;
- 
+    //const [confirm, setModal] = useState(true);
+/*
+    class Modal extends Component {
+        constructor() {
+             this.state = {
+                 confirm : false
+             }
+             this.setModal = this.setModal.bind(this)
+        }
+
+
+        setModal() {
+            this.setState({
+                confirm : !this.state.confirm
+            })
+        }
+
+    }
+*/
 
     return (
         <div>
@@ -29,47 +47,3 @@ const Confirm = (props) => {
 }
 
 export default Confirm;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   //const [confirm, setModal] = useState(true);
-/*
-    class Modal extends Component {
-        constructor() {
-             this.state = {
-                 confirm : false
-             }
-             this.setModal = this.setModal.bind(this)
-        }
-
-
-        setModal() {
-            this.setState({
-                confirm : !this.state.confirm
-            })
-        }
-
-    }
-*/
