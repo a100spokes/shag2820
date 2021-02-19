@@ -4,6 +4,7 @@ import Loader from "@comp/loader/Loader";
 import Header from "@elems/Header";
 import axios from "axios";
 import Filter from "@comp/filter/Filter";
+import Notif from "@comp/notification/Notification";
 
 
 export default class TodosList extends Component{
@@ -13,9 +14,10 @@ export default class TodosList extends Component{
         this.state = {
             todos: [],
             sort : "done",
-            //filter:[]
-            //filterType:"all","done","undone"
+            cls:"notif" ,           
             loader: true,
+            notificationStat : false,
+            notificationMessage: "",      
         }
         this.changeStatus = this.changeStatus.bind(this);
         this.removeItem = this.removeItem.bind(this);
@@ -29,14 +31,15 @@ export default class TodosList extends Component{
     // }
 
     render() {
-        let {loader} = this.state;
+        let {/* todos ,*/ loader, notificationStat, notificationMessage, cls} = this.state;
+        // let {loader} = this.state;
         let todos = this.sortTodos();
 
         return(
             <div>
-                <Header />
-
-                {loader ? <Loader /> : <Filter filterType={this.filter}/>}
+              
+                {loader ? <Loader /> : <Filter filterType={this.filter}/>}                
+                {notificationStat ? <Notif>{notificationMessage}</Notif> :null}                
 
                 {todos.map((item)=> <TodoItem item={item}
                                      remove={this.removeItem}
@@ -83,21 +86,36 @@ export default class TodosList extends Component{
        //      todos : newTodos
        //  })
 
-        this.setState({
-             todos : [...this.state.todos.map(item=>{
-                 if(item.id==id) {
-                     item.completed = !item.completed
-                 }
-                 return item
-             })]
-         })
+       this.setState({
+        todos : [...this.state.todos.map(item=>{
+            if(item.id==id) {
+                item.completed = !item.completed
+            }
+            return item
+        })],
+        notificationStat: true,   
+        notificationMessage: `Запись # ${id} успешно изменена!` 
+    })
+    setTimeout(()=>{
+       this.setState({                
+       notificationStat: false
+   })
+   },2000)
+         
     }
 
     removeItem(id) {
 
         this.setState({
-            todos : [...this.state.todos.filter(item=>item.id!=id ? true : false)]
+            todos : [...this.state.todos.filter(item=>item.id!=id ? true : false)],         
+            notificationStat: true,   
+            notificationMessage: `Запись # ${id} успешно удалена! `,            
         })
+        setTimeout(()=>{
+            this.setState({                
+            notificationStat: false
+        })
+        },4000)        
     }
 
     filter (type) {

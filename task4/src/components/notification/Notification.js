@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Row,Col } from 'reactstrap';
-import "./Notification.style.scss"
+import  "@comp/notification/Notification.style.scss";
 
 const Notification = (props) => {
 

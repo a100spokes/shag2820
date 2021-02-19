@@ -28,22 +28,15 @@ export default class PostItem extends Component{
             <Card>
                 <CardBody>
                     <CardTitle tag="h5">#{item.id} {item.title}</CardTitle>
-                    <Row>
-                      {/*   <Col lg={3}>
-                            <ButtonGroup>
-                                <Button onClick={this.toggleModalUpdate} tag={"span"} color={item.completed ? "success" : "danger"}>
-                                    {item.completed ? "done" : "undone"}
-                                </Button>
-                                <Button onClick={this.toggleModalRemove} tag={"span"} color="danger">
-                                    remove
-                                </Button>
-                            </ButtonGroup>
-                            <Link to={`/todos/${item.id}/${Date.now()+2}`}>more</Link>
-                        </Col> */}
-                        <Col lg={9}></Col>
+                    <Row>                    
+                       <Col lg={10}>
+                            <Button outline color="primary" size="sm">
+                                 <Link to={`/posts/${item.id}/${Date.now()+2}`}>read more</Link>
+                            </Button>
+                        </Col>
                     </Row>
                 </CardBody>
-                <Confirm
+               {/*  <Confirm
                     active={this.state.modalUpdate}
                     message={`Обновить статус записи с id ${item.id}`}
                     ok={{
@@ -58,9 +51,9 @@ export default class PostItem extends Component{
                 ><Row>
                     <Col lg={12}>это будет пост с id {item.id}</Col>
                     <Col lg={12}>text</Col>
-                </Row></Confirm>
+                </Row></Confirm> */}
 
-                <Confirm
+              {/*   <Confirm
                     active={this.state.modalRemove}
                     message={`Удалить запись с id ${item.id}`}
                     ok={{
@@ -75,7 +68,7 @@ export default class PostItem extends Component{
                 >
 
                     <Footer />
-                </Confirm>
+                </Confirm> */}
             </Card>
         )
     }
@@ -91,6 +84,6 @@ export default class PostItem extends Component{
             modalRemove : !this.state.modalRemove
         })
     }
-}
+} 
 
 

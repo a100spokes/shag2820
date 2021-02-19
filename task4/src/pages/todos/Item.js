@@ -29,7 +29,7 @@ export default class TodoItem extends Component{
                 <CardBody>
                     <CardTitle tag="h5">#{item.id} {item.title}</CardTitle>
                     <Row>
-                        <Col lg={3}>
+                        <Col lg={2}>
                             <ButtonGroup>
                                 <Button onClick={this.toggleModalUpdate} tag={"span"} color={item.completed ? "success" : "danger"}>
                                     {item.completed ? "done" : "undone"}
@@ -38,9 +38,16 @@ export default class TodoItem extends Component{
                                     remove
                                 </Button>
                             </ButtonGroup>
+                            {/* <Link to={`/todos/${item.id}/${Date.now()+2}`}>more</Link> */}
+                            {/* <Button>
                             <Link to={`/todos/${item.id}/${Date.now()+2}`}>more</Link>
+                            </Button> */}
                         </Col>
-                        <Col lg={9}></Col>
+                        <Col lg={10}>
+                            <Button outline color="primary" size="sm">
+                                <Link to={`/todos/${item.id}/${Date.now()+2}`}>read more</Link>
+                            </Button>
+                        </Col>
                     </Row>
                 </CardBody>
                 <Confirm

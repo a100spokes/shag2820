@@ -12,7 +12,7 @@ export default function Header() {
     return(
         <Row>
             <Col lg={4}>
-                <Logo bgColor={"#ccc"} text={"logo"} />
+                <Logo /* bgColor={"#ccc"} text={"logo"} */ />
             </Col>
             <Col lg={7}></Col>
             <Col lg={1}>

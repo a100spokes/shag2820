@@ -1,3 +1,4 @@
+import "@pages/todos/style.todos.scss";
 import React, {Component, useEffect, useState} from "react";
 //import Confirm from "@comp/confirm/Confirm";
 import {
@@ -42,7 +43,7 @@ export default function ReadMore (props) {
 
         <Col lg={12} className={"some-class"}>
             <div>read more {props.match.params.id}</div>
-            <Link to={"/todos"}>Назад</Link>
+            <Link to={"/todos"}>назад</Link>
         </Col>
 
     )

@@ -1,5 +1,6 @@
 import React from "react";
-import "./style.scss";
+import  "@comp/logo/style.scss";
+
 
 export default function Logo({text,bgColor}) {
 
@@ -16,10 +17,10 @@ export default function Logo({text,bgColor}) {
     )
 }
 
-function getTime() {
+/* function getTime() {
     let date = new Date();
     return date.toLocaleString();
-}
+} */
 
 
 

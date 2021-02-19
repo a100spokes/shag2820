@@ -1,11 +1,8 @@
 import React, {Component} from "react";
 import PostItem from "@pages/posts/postItem";
 import Loader from "@comp/loader/Loader";
-import Header from "@elems/Header";
 import axios from "axios";
 import Filter from "@comp/filter/Filter";
-// import Filter from "@comp/filter/Filter";
-
 
 export default class PostList extends Component{
     constructor(props) {
@@ -34,8 +31,7 @@ export default class PostList extends Component{
         // let posts = this.sortPosts();
 
         return(
-            <div>
-                <Header />
+            <div>            
 
                 {loader ? <Loader /> : <Filter filterType={this.filter}/>}
 
