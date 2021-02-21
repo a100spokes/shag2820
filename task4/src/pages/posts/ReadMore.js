@@ -3,7 +3,7 @@ import React, {Component, useEffect, useState} from "react";
 //import Confirm from "@comp/confirm/Confirm";
 import {
     Card, Row, Col, CardBody,
-    CardTitle, Button,ButtonGroup
+    CardTitle, Button, CardText, CardSubtitle, Toast, ToastBody, ToastHeader
 } from 'reactstrap';
 import {Link} from "react-router-dom";
 import axios from "axios";
@@ -54,7 +54,7 @@ export default function ReadMore (props) {
     },[]);
     return (
         
-        <Col lg={12} className={"some-class"}>
+       /*  <Col lg={12} className={"some-class"}>
             <div>read more {props.match.params.id}</div>            
             <div>postTitle</div>
             <div>{postTitle}</div>
@@ -63,7 +63,35 @@ export default function ReadMore (props) {
             <div>postEmail</div>
             <div>{postComments}</div>
             <Link to={"/posts"}>назад</Link>
+        </Col> */
+
+
+<Card>
+<CardBody>
+    <CardTitle tag="h5">Title: {postTitle}</CardTitle>
+    <CardSubtitle tag="h6" className="mb-2 text-muted">for userID # {props.match.params.id}</CardSubtitle>
+     <CardText><i>Body text :</i> {postBody}</CardText>
+     <div className="p-3 my-2 rounded">
+        <Toast>
+          <ToastHeader>
+            Reactstrap
+          </ToastHeader>
+          <ToastBody>
+            This is a toast on a white background — check it out!
+          </ToastBody>
+        </Toast>
+      </div>
+    <Row>                    
+       <Col lg={10}>
+            <Button color="warning" size="sm">
+            <Link to={"/posts"}>назад</Link>
+            </Button>
         </Col>
+    </Row>
+</CardBody>
+</Card>
+
+
     )
 }
 console.log(postBody);

@@ -1,5 +1,6 @@
 import React from "react";
 import  "@comp/logo/style.scss";
+import {Link} from "react-router-dom";
 
 
 export default function Logo({text,bgColor}) {
@@ -10,9 +11,11 @@ export default function Logo({text,bgColor}) {
         } >
            {text}
         </div> */
-        <a href="#desc">
+        // <a href="#desc">
+        <Link to={"/"}>
         <img className={"logo"} src="https://s3.tproger.ru/uploads/2016/10/reactmini.png"/>
-        </a>
+        {/* </a> */}
+        </Link>
         // <img src="../static/images/logo.png"/>
     )
 }

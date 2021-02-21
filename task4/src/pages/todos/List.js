@@ -1,19 +1,21 @@
 import React, {Component} from "react";
 import TodoItem from "@pages/todos/Item";
 import Loader from "@comp/loader/Loader";
-import Header from "@elems/Header";
+// import Header from "@elems/Header";
 import axios from "axios";
+import Add from "@comp/add/Add";
 import Filter from "@comp/filter/Filter";
 import Notif from "@comp/notification/Notification";
 
+// const [modal, setModal] = useState(false)
 
 export default class TodosList extends Component{
     constructor(props) {
         console.log("constructor")
-        super(props);
+        super(props); 
         this.state = {
             todos: [],
-            sort : "done",
+            sort : "all",
             cls:"notif" ,           
             loader: true,
             notificationStat : false,
@@ -39,12 +41,14 @@ export default class TodosList extends Component{
             <div>
               
                 {loader ? <Loader /> : <Filter filterType={this.filter}/>}                
+                {/* {loader ? <Filter /> : <Add/>} */}
+                            
                 {notificationStat ? <Notif>{notificationMessage}</Notif> :null}                
 
                 {todos.map((item)=> <TodoItem item={item}
                                      remove={this.removeItem}
                                      change={this.changeStatus}
-                                     key={item.id} />
+                                     key={item.id} /> 
                 )}
             </div>
         )
