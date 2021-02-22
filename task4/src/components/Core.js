@@ -68,7 +68,7 @@ export default function Core() {
                             <Route exact path={"/todos"} component={TodoList}/>
                             <Route exact path={"/posts"} component={PostList}/>
                             <Route exact path={"/todos/:id/:test"} component={TodosReadMore}/>
-                            <Route exact path={"/posts/:id/:test"} component={PostReadMore}/>
+                            <Route exact path={"/posts/:userId/:id/:test"} component={PostReadMore}/>
                             <Route exact path={"/contacts"} component={Contacts}/>
                             <Route exact path={"/about"} component={About}/>
                             {/*<Route exact path={"/posts/:id"} component={ItemReadMore}/>*/}

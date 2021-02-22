@@ -2,6 +2,8 @@ import React, {Component} from "react";
 import TodoItem from "@pages/todos/Item";
 import Loader from "@comp/loader/Loader";
 // import Header from "@elems/Header";
+import { Button, ButtonGroup, Row, Col,} from 'reactstrap'; 
+
 import axios from "axios";
 import Add from "@comp/add/Add";
 import Filter from "@comp/filter/Filter";
@@ -40,8 +42,9 @@ export default class TodosList extends Component{
         return(
             <div>
               
-                {loader ? <Loader /> : <Filter filterType={this.filter}/>}                
+                {loader ? <Loader /> : <Row><Filter filterType={this.filter}/><Add/></Row>}                
                 {/* {loader ? <Filter /> : <Add/>} */}
+                {/* {loader ? null : <Add/>} */}
                             
                 {notificationStat ? <Notif>{notificationMessage}</Notif> :null}                
 

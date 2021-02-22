@@ -27,48 +27,15 @@ export default class PostItem extends Component{
         return(
             <Card>
                 <CardBody>
-                    <CardTitle tag="h5">#{item.id} {item.title}</CardTitle>
+                    <CardTitle tag="h5">user #{item.userId}, post #{item.id}: {item.title}</CardTitle>
                     <Row>                    
                        <Col lg={10}>
                             <Button outline color="primary" size="sm">
-                                 <Link to={`/posts/${item.id}/${Date.now()+2}`}>read more</Link>
+                                 <Link to={`/posts/${item.userId}/${item.id}/${Date.now()+2}`}>read more</Link>
                             </Button>
                         </Col>
                     </Row>
-                </CardBody>
-               {/*  <Confirm
-                    active={this.state.modalUpdate}
-                    message={`Обновить статус записи с id ${item.id}`}
-                    ok={{
-                        title:"Обновить",
-                        color: "success",
-                        fn : ()=>{
-                            this.toggleModalUpdate();
-                            change(item.id);
-                        }
-                    }}
-                    cancel={this.toggleModalUpdate}
-                ><Row>
-                    <Col lg={12}>это будет пост с id {item.id}</Col>
-                    <Col lg={12}>text</Col>
-                </Row></Confirm> */}
-
-              {/*   <Confirm
-                    active={this.state.modalRemove}
-                    message={`Удалить запись с id ${item.id}`}
-                    ok={{
-                        title:"Удалить",
-                        color: "success",
-                        fn : ()=>{
-                            this.toggleModalRemove();
-                            remove(item.id)
-                        }
-                    }}
-                    cancel={this.toggleModalRemove}
-                >
-
-                    <Footer />
-                </Confirm> */}
+                </CardBody>            
             </Card>
         )
     }
