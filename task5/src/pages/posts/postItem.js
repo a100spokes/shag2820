@@ -11,18 +11,18 @@ import {Link} from "react-router-dom";
 export default class PostItem extends Component{
     constructor(props) {
         super(props);
-        this.state= {
+        /* this.state= {
             modalUpdate : false,
             modalRemove : false
         }
         this.toggleModalUpdate=this.toggleModalUpdate.bind(this);
-        this.toggleModalRemove=this.toggleModalRemove.bind(this);
+        this.toggleModalRemove=this.toggleModalRemove.bind(this); */
     }
 
 
 
     render() {
-        let {item,change, remove} = this.props;
+        let {item} = this.props;
 
         return(
             <Card>
@@ -38,18 +38,6 @@ export default class PostItem extends Component{
                 </CardBody>            
             </Card>
         )
-    }
-
-    toggleModalUpdate(){
-        this.setState({
-            modalUpdate : !this.state.modalUpdate
-        })
-    }
-
-    toggleModalRemove(){
-        this.setState({
-            modalRemove : !this.state.modalRemove
-        })
     }
 } 
 

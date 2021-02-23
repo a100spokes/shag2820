@@ -10,7 +10,7 @@ import TodosReadMore from "@pages/todos/ReadMore";
 import PostReadMore from "@pages/posts/ReadMore";
 import ErrorPage from "@pages/404/404";
 import Header from "@elems/Header";
-import {
+import { 
     BrowserRouter as Router, 
     Switch,
     Route, Link
