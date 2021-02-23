@@ -2,13 +2,12 @@ import React, {Component} from "react";
 import TodoItem from "@pages/todos/Item";
 import Loader from "@comp/loader/Loader";
 // import Header from "@elems/Header";
-import { Button, ButtonGroup, Row, Col,} from 'reactstrap'; 
+import {Row} from 'reactstrap'; 
 import AddPostItemForm from "@elems/forms/AddPostItemForm";
 import axios from "axios";
-import Add from "@comp/add/Add";
+// import Add from "@comp/add/Add";
 import Filter from "@comp/filter/Filter";
 import Notif from "@comp/notification/Notification";
-
 // const [modal, setModal] = useState(false)
 
 export default class TodosList extends Component{
@@ -41,12 +40,11 @@ export default class TodosList extends Component{
 
         return(
             <div>
-              <AddPostItemForm />
-                {loader ? <Loader /> : <Row><Filter filterType={this.filter}/>{/* <Add/> */}</Row>}                
+              {/* <AddPostItemForm /> */}
+                {loader ? <Loader /> : <Row><Filter filterType={this.filter}/><AddPostItemForm />{/* <Add/> */}</Row>}                
                 {/* {loader ? <Filter /> : <Add/>} */}
-                {/* {loader ? null : <Add/>} */}
-                            
-                {notificationStat ? <Notif>{notificationMessage}</Notif> :null}                
+                {/* {loader ? null : <Add/>} */}                                       
+                {notificationStat ? <Notif status='good'>{notificationMessage}</Notif> :null}                
 
                 {todos.map((item)=> <TodoItem item={item}
                                      remove={this.removeItem}
@@ -182,7 +180,6 @@ export default class TodosList extends Component{
 }
 
 changeStatus(id) {
-
    // let {posts} = this.state;
    // let newTodos = [];
    // for(let i =0 ; i<posts.length ; i++) {
@@ -191,8 +188,6 @@ changeStatus(id) {
    //     }
    //     newTodos.push(posts[i]);
    // }
-   //
-   //
    //  this.setState({
    //      posts : newTodos
    //  })
@@ -203,27 +198,40 @@ changeStatus(id) {
                  item.completed = !item.completed
              }
              return item
-         })]
+         })],
+         notificationStat: true,   
+         notificationMessage: `Запись # ${id} успешно изменена!` 
      })
+     setTimeout(()=>{
+        this.setState({                
+        notificationStat: false
+    })
+    },2000)
 }
 
 removeItem(id) {
 
     this.setState({
-        todos : [...this.state.todos.filter(item=>item.id!=id ? true : false)]
+        todos : [...this.state.todos.filter(item=>item.id!=id ? true : false)],
+        notificationStat: true,   
+        notificationMessage: `Запись # ${id} успешно удалена! `,  
     })
+    setTimeout(()=>{
+        this.setState({                
+        notificationStat: false
+    })
+    },4000)    
 }
 
 filter (type) {
-    console.log(111,type)
+    // console.log(111,type)
     this.setState({
         sort: type
     })
 }
 
 sortTodos () {
-    let {todos, sort} = this.state;
-    //posts = [].concat(posts);
+    let {todos, sort} = this.state;     
 
     const arrSort = [...todos.filter((item)=>{
 
@@ -236,10 +244,8 @@ sortTodos () {
         else if(sort=="undone" && item.completed==0) {
             return true
         }
-
         return false
     })];
-
     return arrSort;
 
 }

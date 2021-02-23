@@ -1,4 +1,4 @@
-.notif {
+.notif-good {
     padding: 15px;
     margin-top: 20px;
 
@@ -13,6 +13,39 @@
 
     color: rgb(255, 255, 255);
     background-color: rgb(26, 161, 44);
+    border-radius: 5px;
+
+    box-shadow:
+
+        0 3px 3px rgba(0,0,0,0.1);
+        
+        animation-name: slideLeft;
+        -webkit-animation-name: slideLeft;  
+     
+        animation-duration: 0.5s; 
+        -webkit-animation-duration: 0.5s;
+     
+        animation-timing-function: ease-in-out; 
+        -webkit-animation-timing-function: ease-in-out;     
+     
+        visibility: visible !important; 
+        
+}
+.notif-bad {
+    padding: 15px;
+    margin-top: 20px;
+
+    width: 30%;
+
+    position: fixed;
+    top: 10px; right: 10px;
+
+    z-index: 99;
+    
+    text-align: center;
+
+    color: rgb(255, 255, 255);
+    background-color: rgb(255, 0, 0);
     border-radius: 5px;
 
     box-shadow:

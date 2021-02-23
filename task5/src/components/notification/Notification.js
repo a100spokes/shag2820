@@ -7,8 +7,8 @@ const Notification = (props) => {
     // const {ok, message, active , cancel} = props;
   
 
-    return (        
-        <div className="notif">           
+    return (                       
+        <div className={'notif-' + props.status}>        
                     <Row >
                         <Col lg={12}>
                         {props.children}
