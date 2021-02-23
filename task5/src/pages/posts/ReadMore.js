@@ -47,7 +47,7 @@ export default function ReadMore (props) {
            <Row>                    
              <Col lg={10}>
                   <Button color="warning" size="sm">
-                  <Link to={"/posts"}>назад</Link>
+                  <Link to={"/posts"}>back</Link>
                   </Button>
               </Col>
           </Row>

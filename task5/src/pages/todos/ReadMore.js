@@ -27,9 +27,10 @@ export default function ReadMore (props) {
     * */
     let [item, setItem] = useState(null);    
     
-/*
+    /**
     *!^^^orign S^^^
-     */
+    */
+
   /*   useEffect(()=>{
         axios.get(`https://jsonplaceholder.typicode.com/todos/${props.match.params.id}`)
             .then(response=>{
@@ -55,9 +56,12 @@ export default function ReadMore (props) {
     }) */
 
 
-    /*
-    *!^^^orign E^^^
+    /**
+    *! ^^^orign E^^^
      */
+
+
+
     
     useEffect(()=>{
         axios.get(`${process.env.API_URL_XHR}/${props.match.params.id}`,{
@@ -88,7 +92,7 @@ export default function ReadMore (props) {
         <Row>                    
        <Col lg={10}>
             <Button color="warning" size="sm">
-            <Link to={"/todos"}>назад</Link>
+            <Link to={"/todos"}>back</Link>
             </Button>
         </Col>
     </Row>

@@ -14,10 +14,11 @@ const AddPostItemForm = (props) => {
 export default AddPostItemForm; */
 
 // ^^^^original form^^^^
+import "@elems/forms/style.core.scss";
 import Notif from "@comp/notification/Notification";
 import axios from "axios";
 import React, { useState } from 'react';
-import { Collapse, Button,} from 'reactstrap';
+import { Collapse, Button,Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 
 
@@ -41,24 +42,52 @@ const AddPostItemForm = (props) => {
 <div>
       {notificationStat ? <Notif status={notificationClass}>{notificationMessage}</Notif> :null} 
       <Button outline color="warning" onClick={toggle} style={{ marginBottom: '1rem' }}>Add todos here</Button>
-      <Collapse isOpen={!isOpen}>
 /////////////////////////////////////////////////////
-        <form onSubmit={submit}>            
-            <div><input type={"text"} name={"title"} placeholder={"title"} /></div>
-            <div><textarea name={"description"} placeholder={"description"}></textarea></div>
+      <Collapse isOpen={!isOpen}>
+        {/* <form onSubmit={submit}>             */}
+            {/* <div><input type={"text"} name={"title"} placeholder={"title"} /></div> */}
+            {/* <div><textarea name={"description"} placeholder={"description"}></textarea></div> */}
             {/* <div>
                 Done <input type={"radio"} value={1} name={"completed"}/>
             </div> */}
             {/*<div>*/}
             {/*    Undone <input type={"radio"} value={0} name={"completed"}/>*/}
             {/*</div>*/}
+
             {/*<div>*/}
             {/*    Dealine <input type={"date"} name={"dead_line"}/>*/}
+
             {/*</div>*/}
-            <div>
+       {/*      <div>
                 <button>Отправить</button>
             </div>
-        </form>
+        </form> */}
+
+<Form className="mainForm" onSubmit={submit}>   
+        <FormGroup>
+            <Label for="titleText">Title</Label>
+            <Input type="text" name="title" id="titleText" placeholder={"title"}/>
+          </FormGroup>  
+          <FormGroup>
+            <Label for="exampleText">Description</Label>
+            <Input type="textarea" name="description" id="exampleText" placeholder={"description"} />
+        </FormGroup>
+
+         <FormGroup>
+            <Label for="exampleDate">Dealine</Label>
+            <Input
+            type="date"
+            name="dead_line"
+            id="exampleDate"
+            placeholder="date placeholder"
+            />
+        </FormGroup>   
+      
+        
+      
+         <Button>ADD</Button>
+    </Form>
+
         </Collapse>
     </div>
 /////////////////////////////////////////////
@@ -85,11 +114,13 @@ const AddPostItemForm = (props) => {
             
             .catch(error=>{
                 console.log(error);
-                setNotifText('Something wrong! Todos wasn`t added!');
+                setNotifText('Something went wrong! Todos wasn`t added.');
                 setNotif(true); 
                 setNotifClass('bad');
                 setTimeout(()=>{
                     setNotif(false);  
+                    setNotifClass('good');
+                    setNotifText('done!');
                 },4000);
             })
     }

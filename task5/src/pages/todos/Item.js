@@ -31,7 +31,7 @@ export default class TodoItem extends Component{
                     <Row>
                         <Col lg={2}>
                             <ButtonGroup>
-                                <Button onClick={this.toggleModalUpdate} tag={"span"} color={item.completed ? "success" : "danger"}>
+                                <Button onClick={this.toggleModalUpdate} tag={"span"} color={item.completed ? "success" : "secondary"}>
                                     {item.completed ? "done" : "undone"}
                                 </Button>
                                 <Button onClick={this.toggleModalRemove} tag={"span"} color="danger">
