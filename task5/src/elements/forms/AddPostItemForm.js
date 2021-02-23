@@ -15,11 +15,12 @@ export default AddPostItemForm; */
 
 // ^^^^original form^^^^
 
-import React, { useState } from 'react'; 
 import axios from "axios";
-
+import React, { useState } from 'react';
+import { Collapse, Button,} from 'reactstrap';
 const AddPostItemForm = (props) => {
-
+    const [isOpen, setIsOpen] = useState(false);
+    const toggle = () => setIsOpen(!isOpen);
 /*
 * "title": "test",
             "description": "admin@comet24.pro",
@@ -28,7 +29,11 @@ const AddPostItemForm = (props) => {
             "dead_line": "2021-01-16 21:51:57",
 * */
     return (
-        <form onSubmit={submit}>
+<div>
+      <Button outline color="warning" onClick={toggle} style={{ marginBottom: '1rem' }}>Add todos here</Button>
+      <Collapse isOpen={!isOpen}>
+
+        <form onSubmit={submit}>            
             <div><input type={"text"} name={"title"} placeholder={"title"} /></div>
             <div><textarea name={"description"} placeholder={"description"}></textarea></div>
             {/* <div>
@@ -44,6 +49,10 @@ const AddPostItemForm = (props) => {
                 <button>Отправить</button>
             </div>
         </form>
+        </Collapse>
+    </div>
+
+
     );
 
 
