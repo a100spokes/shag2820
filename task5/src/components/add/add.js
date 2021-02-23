@@ -8,8 +8,9 @@ export default function Add() {
     const [modal, setModal] = useState(false) 
 
     return(
-        <Row>
-            <Col lg={11}></Col>
+    <div>
+        {/* <Row> */}
+            {/* <Col lg={11}></Col> */}
             <Col lg={1}>
                 <Button className="add" color={"warning"} onClick={toggleModal}>Add</Button>
             </Col>
@@ -28,7 +29,8 @@ export default function Add() {
                 <AddPostItemForm />
             </Confirm>
 
-        </Row>
+        {/* </Row> */}
+        </div>
     )
 
     function toggleModal() {
