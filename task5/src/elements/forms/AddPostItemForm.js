@@ -29,6 +29,9 @@ const AddPostItemForm = (props) => {
     const [notificationStat, setNotif] = useState(false);   
     const [notificationClass, setNotifClass] = useState("good");   
     const [notificationMessage, setNotifText] = useState("done");   
+    
+     
+    
     const toggle = () => setIsOpen(!isOpen);    
     
 /*
@@ -42,7 +45,7 @@ const AddPostItemForm = (props) => {
 <div>
       {notificationStat ? <Notif status={notificationClass}>{notificationMessage}</Notif> :null} 
       <Button outline color="warning" onClick={toggle} style={{ marginBottom: '1rem' }}>Add todos here</Button>
-/////////////////////////////////////////////////////
+
       <Collapse isOpen={!isOpen}>
         {/* <form onSubmit={submit}>             */}
             {/* <div><input type={"text"} name={"title"} placeholder={"title"} /></div> */}
@@ -66,11 +69,21 @@ const AddPostItemForm = (props) => {
 <Form className="mainForm" onSubmit={submit}>   
         <FormGroup>
             <Label for="titleText">Title</Label>
-            <Input type="text" name="title" id="titleText" placeholder={"title"}/>
+            <Input 
+            type="text" 
+            name="title" 
+            id="titleText" 
+            placeholder={"title"}             
+            />
           </FormGroup>  
           <FormGroup>
             <Label for="exampleText">Description</Label>
-            <Input type="textarea" name="description" id="exampleText" placeholder={"description"} />
+            <Input 
+            type="textarea" 
+            name="description" 
+            id="exampleText" 
+            placeholder={"description"}             
+            />
         </FormGroup>
 
          <FormGroup>
@@ -90,12 +103,12 @@ const AddPostItemForm = (props) => {
 
         </Collapse>
     </div>
-/////////////////////////////////////////////
     );
 
 
     function submit(e) { 
         e.preventDefault();
+        const form = e.target;
         let data =  new FormData(e.target);
             data.set('order',0);
             data.set('completed',0);
@@ -105,8 +118,9 @@ const AddPostItemForm = (props) => {
             },
         })
             .then(response=>{
-                console.log(response)
+                console.log(response)                
                 setNotif(true);  
+                form.reset();
                 setTimeout(()=>{
                     setNotif(false);  
                 },4000)
