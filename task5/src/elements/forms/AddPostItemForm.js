@@ -28,7 +28,7 @@ const AddPostItemForm = (props) => {
     const [isOpen, setIsOpen] = useState(false);
     const [notificationStat, setNotif] = useState(false);   
     const [notificationClass, setNotifClass] = useState("good");   
-    const [notificationMessage, setNotifText] = useState("done");   
+    const [notificationMessage, setNotifText] = useState("done");    
     
      
     
