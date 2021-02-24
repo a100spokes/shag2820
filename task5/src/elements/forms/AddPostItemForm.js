@@ -16,21 +16,16 @@ export default AddPostItemForm; */
 // ^^^^original form^^^^
 import "@elems/forms/style.core.scss";
 import Notif from "@comp/notification/Notification";
+import {up} from "@pages/todos/List";
 import axios from "axios";
 import React, { useState } from 'react';
 import { Collapse, Button,Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-
-
-
-
 
 const AddPostItemForm = (props) => {
     const [isOpen, setIsOpen] = useState(false);
     const [notificationStat, setNotif] = useState(false);   
     const [notificationClass, setNotifClass] = useState("good");   
     const [notificationMessage, setNotifText] = useState("done");    
-    
-     
     
     const toggle = () => setIsOpen(!isOpen);    
     
@@ -42,11 +37,11 @@ const AddPostItemForm = (props) => {
             "dead_line": "2021-01-16 21:51:57",
 * */
     return (
-<div>
+    <div>
       {notificationStat ? <Notif status={notificationClass}>{notificationMessage}</Notif> :null} 
       <Button outline color="warning" onClick={toggle} style={{ marginBottom: '1rem' }}>Add todos here</Button>
 
-      <Collapse isOpen={!isOpen}>
+      <Collapse isOpen={isOpen}>
         {/* <form onSubmit={submit}>             */}
             {/* <div><input type={"text"} name={"title"} placeholder={"title"} /></div> */}
             {/* <div><textarea name={"description"} placeholder={"description"}></textarea></div> */}
@@ -66,40 +61,42 @@ const AddPostItemForm = (props) => {
             </div>
         </form> */}
 
-<Form className="mainForm" onSubmit={submit}>   
-        <FormGroup>
-            <Label for="titleText">Title</Label>
-            <Input 
-            type="text" 
-            name="title" 
-            id="titleText" 
-            placeholder={"title"}             
-            />
-          </FormGroup>  
-          <FormGroup>
-            <Label for="exampleText">Description</Label>
-            <Input 
-            type="textarea" 
-            name="description" 
-            id="exampleText" 
-            placeholder={"description"}             
-            />
-        </FormGroup>
+            <Form className="mainForm" onSubmit={submit}>   
+                <FormGroup>
+                    <Label for="titleText">Title</Label>
+                    <Input 
+                    required
+                    type="text" 
+                    name="title" 
+                    id="titleText" 
+                    placeholder={"title"}             
+                    />
+                </FormGroup>  
 
-         <FormGroup>
-            <Label for="exampleDate">Dealine</Label>
-            <Input
-            type="date"
-            name="dead_line"
-            id="exampleDate"
-            placeholder="date placeholder"
-            />
-        </FormGroup>   
-      
-        
-      
-         <Button>ADD</Button>
-    </Form>
+                <FormGroup>
+                    <Label for="exampleText">Description</Label>
+                    <Input 
+                    required
+                    type="textarea" 
+                    name="description" 
+                    id="exampleText" 
+                    placeholder={"description"}             
+                    />
+                </FormGroup>
+
+                <FormGroup>
+                    <Label for="exampleDate">Dealine</Label>
+                    <Input
+                    required
+                    type="date"
+                    name="dead_line"
+                    id="exampleDate"
+                    placeholder="date placeholder"
+                    />
+                </FormGroup>   
+            
+                <Button>ADD</Button>
+            </Form>
 
         </Collapse>
     </div>
@@ -112,6 +109,7 @@ const AddPostItemForm = (props) => {
         let data =  new FormData(e.target);
             data.set('order',0);
             data.set('completed',0);
+
         axios.post(`${process.env.API_URL_XHR}`,data,{
             headers: {
                 'apptoken': process.env.API_KEY,
@@ -123,8 +121,10 @@ const AddPostItemForm = (props) => {
                 form.reset();
                 setTimeout(()=>{
                     setNotif(false);  
-                },4000)
-            })            
+                },4000);
+                
+            })     
+                   
             
             .catch(error=>{
                 console.log(error);

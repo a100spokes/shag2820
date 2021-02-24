@@ -72,7 +72,7 @@ export default class TodoItem extends Component{
                     message={`Удалить запись с id ${item.id}`}
                     ok={{
                         title:"Удалить",
-                        color: "success",
+                        color: "danger",
                         fn : ()=>{
                             this.toggleModalRemove();
                             remove(item.id)
