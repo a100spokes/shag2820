@@ -2,21 +2,30 @@
 import "@comp/style.core.scss";
 import React, { useState } from 'react';
 import Home from "@pages/home/home";
+import PostList from "@pages/posts/postList";
+import TodoList from "@pages/todos/List";
 import Contacts from "@pages/contacts/contacts";
 import About from "@pages/about/about";
-import TodoList from "@pages/todos/List";
-import PostList from "@pages/posts/postList";
 import TodosReadMore from "@pages/todos/ReadMore";
 import PostReadMore from "@pages/posts/ReadMore";
 import ErrorPage from "@pages/404/404";
 import Header from "@elems/Header";
+
+import { Container, Row, Col, Nav, NavItem,} from 'reactstrap';
+
 import { 
     BrowserRouter as Router, 
     Switch,
     Route, Link
 } from "react-router-dom";
-import { Container, Row, Col, Nav, NavItem, Dropdown, DropdownItem, DropdownToggle, DropdownMenu, NavLink } from 'reactstrap';
-export default function Core() {
+
+import {showNotif} from "@redux/actions/notif_A";
+import Notif from "@comp/notification/Notification";
+
+import {connect} from "react-redux";
+
+
+function Core(props) {
     return(<Router>
             <Container fluid>
                 <Row>
@@ -82,7 +91,21 @@ export default function Core() {
                     </Col>
                  
                 </Row>
+                {props.notif ? <Notif /> : null}
             </Container>
         </Router>
     )
 }
+
+const mapStateToProps = (store)=>{
+    return {
+        notif : store.Notif,
+    }
+}
+
+const mapDispatchToProps = {
+    showNotif
+}
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(Core)

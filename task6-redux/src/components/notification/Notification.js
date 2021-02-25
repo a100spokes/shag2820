@@ -4,7 +4,17 @@ import  "@comp/notification/Notification.style.scss";
 
 const Notification = (props) => {
 
-    // const {ok, message, active , cancel} = props;
+    /*
+* 
+*
+
+const mapDispatchToProps = {
+    hideNotification
+}
+
+
+export default connect(null,mapDispatchToProps)(Loader)
+* */
   
 
     return (                       
