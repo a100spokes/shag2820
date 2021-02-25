@@ -8,10 +8,13 @@ import axios from "axios";
 // import Add from "@comp/add/Add";
 import Filter from "@comp/filter/Filter";
 import Notif from "@comp/notification/Notification";
+
+import {connect} from "react-redux";
+import {showNotif, hideNotif} from "@redux/actions/notif_A";
 // const [modal, setModal] = useState(false)
  
 
-export default class TodosList extends Component{
+class TodosList extends Component{
      
     constructor(props) {
         console.log("constructor")
@@ -311,3 +314,20 @@ sortTodos () {
 }
 
 
+
+const mapStateToProps = (store)=>{
+    return {
+        store : store.Todos,
+        loader : store.Loader,
+    }
+}
+
+const mapDispatchToProps = {
+    /* addAllTodo,
+    removeTodo, */    
+    showNotif, 
+    hideNotif
+}
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(TodosList)
