@@ -1,17 +1,17 @@
 import React, {Component} from "react"; 
 import TodoItem from "@pages/todos/Item";
 import Loader from "@comp/loader/Loader";
-// import Header from "@elems/Header";
 import {Row} from 'reactstrap'; 
 import AddPostItemForm from "@elems/forms/AddPostItemForm";
 import axios from "axios";
-// import Add from "@comp/add/Add";
+import {connect} from "react-redux";
 import Filter from "@comp/filter/Filter";
-import Notif from "@comp/notification/Notification";
-// const [modal, setModal] = useState(false)
+import {hideNotification,showNotifFailTodos,showNotifAllOKTodos,} from "@redux/actions/notification";
+
+
  
 
-export default class TodosList extends Component{
+/* export default */ class TodosList extends Component{
      
     constructor(props) {
         console.log("constructor")
@@ -20,10 +20,7 @@ export default class TodosList extends Component{
             todos: [],
             sort : "all",
             cls:"notif" ,           
-            loader: true,
-            notificationStat : false,
-            notificationMessage: "", 
-            notificationClass: "good",     
+            loader: true,          
         }
         this.changeStatus = this.changeStatus.bind(this);
         this.removeItem = this.removeItem.bind(this);
@@ -31,26 +28,15 @@ export default class TodosList extends Component{
         this.sortTodos = this.sortTodos.bind(this);
         
     }
-
-    // static getDerivedStateFromProps(props, state) {
-    //     console.log("getDerivedStateFromProps")
-    //     return null
-    // }
-    /* up (){
-        console.log("UPUPUPUPUPU");
-    }; */
+   
     render() {
-        let {/* todos ,*/ loader, notificationStat, notificationMessage, notificationClass,} = this.state;
-        // let {loader} = this.state;
+        let {loader, } = this.state;
+        
         let todos = this.sortTodos();
 
         return(
-            <div>
-              {/* <AddPostItemForm /> */}
-                {loader ? <Loader /> : <Row><Filter filterType={this.filter}/><AddPostItemForm />{/* <Add/> */}</Row>}                
-                {/* {loader ? <Filter /> : <Add/>} */}
-                {/* {loader ? null : <Add/>} */}                                       
-                {notificationStat ? <Notif status={notificationClass}>{notificationMessage}</Notif> :null}                
+            <div>             
+                {loader ? <Loader /> : <Row><Filter filterType={this.filter}/><AddPostItemForm /></Row>}   
 
                 {todos.map((item)=> <TodoItem item={item}
                                      remove={this.removeItem}
@@ -59,109 +45,7 @@ export default class TodosList extends Component{
                 )}
             </div>
         )
-    }
-    /*
-    *! ^^^origin S^^^
-    */
-/* 
-    componentDidMount() {
-        setTimeout(()=>{
-            axios.get("https://jsonplaceholder.typicode.com/todos")
-                .then(response=>{
-                    console.log(response.data)
-                    // bad this.state.todos = response.data;
-
-                    this.setState({
-                        todos : response.data,
-                        loader: false, // loader: !this.state.loader
-                    },()=>{
-                        console.log("setState")
-                    })
-
-
-                })
-        },1000)
-
-    }
-
-    changeStatus(id) {
-
-       // let {todos} = this.state;
-       // let newTodos = [];
-       // for(let i =0 ; i<todos.length ; i++) {
-       //     if(todos[i].id==id) {
-       //         todos[i].completed = !todos[i].completed;
-       //     }
-       //     newTodos.push(todos[i]);
-       // }
-       //
-       //
-       //  this.setState({
-       //      todos : newTodos
-       //  })
-
-       this.setState({
-        todos : [...this.state.todos.map(item=>{
-            if(item.id==id) {
-                item.completed = !item.completed
-            }
-            return item
-        })],
-        notificationStat: true,   
-        notificationMessage: `Запись # ${id} успешно изменена!` 
-    })
-    setTimeout(()=>{
-       this.setState({                
-       notificationStat: false
-   })
-   },2000)
-         
-    }
-
-    removeItem(id) {
-
-        this.setState({
-            todos : [...this.state.todos.filter(item=>item.id!=id ? true : false)],         
-            notificationStat: true,   
-            notificationMessage: `Запись # ${id} успешно удалена! `,            
-        })
-        setTimeout(()=>{
-            this.setState({                
-            notificationStat: false
-        })
-        },4000)        
-    }
-
-    filter (type) {
-        this.setState({
-            sort: type
-        })
-    }
-
-    sortTodos () {
-        let {todos, sort} = this.state;
-        //todos = [].concat(todos);
-
-        const arrSort = [...todos.filter((item)=>{
-            if(sort=="all") {
-                return true
-            }
-            else if(sort=="done" && item.completed) {
-                return true
-            }
-            else if(sort=="undone" && !item.completed) {
-                return true
-            }
-
-            return false
-        })];
-
-        return arrSort;
-
-    } */
-    /*
-    *! ^^^origin E^^^
-    */
+    }    
 
    componentDidMount() {
     setTimeout(()=>{
@@ -176,40 +60,28 @@ export default class TodosList extends Component{
                     todos : response.data.data,
                     loader: false, // loader: !this.state.loader
                 },()=>{
+                    
+                    this.props.showNotifAllOKTodos();                         
+                        
+                        setTimeout(()=>{
+                            this.props.hideNotification(); 
+                        },4000); 
                     console.log("setState")
                 })
             })
 
             .catch(error=>{
                 console.log(error);
-                this.setState({               
-                    notificationClass:"bad",
-                    notificationMessage: `Something went wrong! Todos weren\`t uploaded. `,  
-                    notificationStat: true,   
-                })
-                setTimeout(()=>{
-                    this.setState({                
-                        notificationStat: false,
-                        notificationClass:"good",
-                        notificationMessage: `Todos were uploaded `,    
-                    })                
-                },4000);            
+                this.props.showNotifFailTodos();                         
+                        
+                        setTimeout(()=>{
+                            this.props.hideNotification(); 
+                        },4000);  
             })
     },1000)
 }
 
-changeStatus(id) {
-   // let {posts} = this.state;
-   // let newTodos = [];
-   // for(let i =0 ; i<posts.length ; i++) {
-   //     if(posts[i].id==id) {
-   //         posts[i].completed = !posts[i].completed;
-   //     }
-   //     newTodos.push(posts[i]);
-   // }
-   //  this.setState({
-   //      posts : newTodos
-   //  })
+changeStatus(id) { 
 
     this.setState({
          todos : [...this.state.todos.map(item=>{
@@ -227,25 +99,7 @@ changeStatus(id) {
     })
     },2000)
 }
-/*
-    *! ^^^origin S^^^
-    */
-/* removeItem(id) {
 
-    this.setState({
-        todos : [...this.state.todos.filter(item=>item.id!=id ? true : false)],
-        notificationStat: true,   
-        notificationMessage: `Запись # ${id} успешно удалена! `,  
-    })
-    setTimeout(()=>{
-        this.setState({                
-        notificationStat: false
-    })
-    },4000)    
-} */
-/*
-    *! ^^^origin E^^^
-    */
 
    removeItem(id) {
 
@@ -281,24 +135,12 @@ changeStatus(id) {
                     notificationMessage: `Todo # ${id} was successfully deleted! `,    
                 })                
             },4000);            
-        })
-
-   /*  this.setState({
-        todos : [...this.state.todos.filter(item=>item.id!=id ? true : false)],
-        notificationStat: true,   
-        notificationMessage: `Запись # ${id} успешно удалена! `,  
-    })
-    setTimeout(()=>{
-        this.setState({                
-        notificationStat: false
-    })
-    },4000)    */ 
+        })   
 }
 
 
 
-filter (type) {
-    // console.log(111,type)
+filter (type) { 
     this.setState({
         sort: type
     })
@@ -325,5 +167,20 @@ sortTodos () {
 
 
 }
+
+const mapStateToProps = (store)=>{
+   
+    return {        
+        notification : store.NotificationIndex,        
+    }
+}
+
+const mapDispatchToProps = {    
+    showNotifAllOKTodos,
+    hideNotification,
+    showNotifFailTodos,
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(TodosList)
 
 

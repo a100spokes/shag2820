@@ -4,7 +4,7 @@ import Loader from "@comp/loader/Loader";
 import axios from "axios";
 import ComFilter from "@comp/comFilter/comFilter";
 import {connect} from "react-redux";
-import {showNotifAllOK, hideNotification,showNotifFailPosts} from "@redux/actions/notification";
+import {showNotifAllOKPosts, hideNotification,showNotifFailPosts} from "@redux/actions/notification";
 
 import { Row, } from 'reactstrap';
 
@@ -64,7 +64,7 @@ import { Row, } from 'reactstrap';
                         notificationStat: true, */
                         
                     },()=>{
-                        this.props.showNotifAllOK();                         
+                        this.props.showNotifAllOKPosts();                         
                         
                         setTimeout(()=>{
                             this.props.hideNotification(); 
@@ -139,7 +139,7 @@ const mapStateToProps = (store)=>{
 const mapDispatchToProps = {
     /* addAllTodo,
     removeTodo, */
-    showNotifAllOK,
+    showNotifAllOKPosts, 
     hideNotification,
     showNotifFailPosts,
 }

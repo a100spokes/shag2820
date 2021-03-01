@@ -19,7 +19,7 @@ import {
 } from "react-router-dom";
 
 import { Container, Row, Col, Nav, NavItem,} from 'reactstrap';
-import {showNotifAllOK,showNotifFailPosts} from "@redux/actions/notification";
+import {showNotifAllOKPosts,showNotifAllOKTodos,showNotifFailPosts,showNotifFailTodos} from "@redux/actions/notification";
 import {connect} from "react-redux";
 
 
@@ -108,8 +108,11 @@ const mapStateToProps = (store)=>{
 }
 
 const mapDispatchToProps = { 
-    showNotifAllOK,
-    showNotifFailPosts
+    showNotifAllOKPosts,
+    showNotifAllOKTodos,
+    showNotifFailPosts,
+    showNotifFailTodos,
+
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(Core)
