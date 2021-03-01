@@ -4,8 +4,8 @@
 .dead{
     margin: 15px 0px 15px 0px;
 
-    color: rgb(255, 4, 4);
-    .container{
+    .container-red{
+        color: rgb(255, 4, 4);
         margin-left: 0px;
         display: flex;
         justify-content: flex-start;
@@ -15,6 +15,19 @@
                 position: relative;
                 bottom: 3px;
                 color: rgb(71, 14, 14);
+            }
+    }
+    .container-green{
+        color: rgb(0, 156, 34);
+        margin-left: 0px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: baseline;
+        span{
+                padding-left: 10px;
+                position: relative;
+                bottom: 3px;
+                color: rgb(0, 82, 18);
             }
     }
     

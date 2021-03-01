@@ -27,9 +27,9 @@ export default class TodoItem extends Component{
         return(
             <Card>
                 <CardBody>
-                    <CardTitle tag="h5">#{item.id} {item.title}</CardTitle>
+                    <CardTitle tag="h5">#{item.id} {item.title}</CardTitle> 
                     <Row className="dead">
-                    {!item.completed ? <div className="container"><div className="gg-alarm"></div><span ><i>Dead line :</i> {item.dead_line}</span></div>  :<div className="container"><div className="gg-check-r"></div><span ><i>Compleated :</i> {item.updated_at}</span></div>}
+                    {!item.completed ? <div className="container-red"><div className="gg-alarm"></div><span ><i>Dead line :</i> {item.dead_line}</span></div>  :<div className="container-green"><div className="gg-check-r"></div><span ><i>Compleated :</i> {item.updated_at}</span></div>}
                     {/* <div className="gg-alarm"></div><span ><i>Dead line :</i> {item.dead_line}</span>       */}
 
                     </Row>
