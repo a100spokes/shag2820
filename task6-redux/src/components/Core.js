@@ -3,7 +3,6 @@ import "@comp/style.core.scss";
 import React, { useState } from 'react';
 import Home from "@pages/home/home";
 import Contacts from "@pages/contacts/contacts";
-
 import About from "@pages/about/about";
 import TodoList from "@pages/todos/List";
 import PostList from "@pages/posts/postList";
@@ -11,18 +10,18 @@ import TodosReadMore from "@pages/todos/ReadMore";
 import PostReadMore from "@pages/posts/ReadMore";
 import ErrorPage from "@pages/404/404";
 import Header from "@elems/Header";
+import NotificationComp from "@comp/notification/Notification";
+
 import { 
     BrowserRouter as Router, 
     Switch,
     Route, Link
 } from "react-router-dom";
-import { Container, Row, Col, Nav, NavItem, Dropdown, DropdownItem, DropdownToggle, DropdownMenu, NavLink } from 'reactstrap';
-import {showNotification} from "@redux/actions/notification";
-import Notification from "@comp/notification/Notification";
+
+import { Container, Row, Col, Nav, NavItem,} from 'reactstrap';
+import {showNotifAllOK,showNotifFailPosts} from "@redux/actions/notification";
 import {connect} from "react-redux";
 
-
-import Notif from "@comp/notification/Notification";
 
 // export default function Core() {
 function Core(props) {
@@ -92,21 +91,26 @@ function Core(props) {
                     </Col>
                  
                 </Row>
-                {props.notification ? <Notification /> : null}
+                {props.notificationProp ? <NotificationComp status={props.notificationClass}>{props.notificationText}</NotificationComp> : null}
             </Container>
         </Router>
     )
 }
+/*
+*^^^store^^^
+*/
 const mapStateToProps = (store)=>{
-    return {
-        notification : store.Notification,
+    return {        
+        notificationProp : store.NotificationIndex.data,
+        notificationText : store.NotificationIndex.text,
+        notificationClass : store.NotificationIndex.classCSS,
     }
 }
 
 const mapDispatchToProps = { 
-    showNotification
+    showNotifAllOK,
+    showNotifFailPosts
 }
-
 
 export default connect(mapStateToProps,mapDispatchToProps)(Core)
 

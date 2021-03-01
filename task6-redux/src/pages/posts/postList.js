@@ -4,9 +4,7 @@ import Loader from "@comp/loader/Loader";
 import axios from "axios";
 import ComFilter from "@comp/comFilter/comFilter";
 import {connect} from "react-redux";
-import {showNotification, hideNotification} from "@redux/actions/notification";
-
-import Notif from "@comp/notification/Notification";
+import {showNotifAllOK, hideNotification,showNotifFailPosts} from "@redux/actions/notification";
 
 import { Row, } from 'reactstrap';
 
@@ -58,7 +56,7 @@ import { Row, } from 'reactstrap';
                     console.log(response.data) 
                     // bad this.state.todos = response.data;
 
-                    this.setState({
+                    this.setState({ 
                         posts : response.data,
                         loader: false, // loader: !this.state.loader
                        /*  notificationMessage: `Posts were uploaded `,   
@@ -66,15 +64,20 @@ import { Row, } from 'reactstrap';
                         notificationStat: true, */
                         
                     },()=>{
-                        console.log("setState")
-                        this.props.showNotification();                         
+                        this.props.showNotifAllOK();                         
+                        
                         setTimeout(()=>{
                             this.props.hideNotification(); 
-                        },4000);                       
+                        },4000);
                     })
                 })
                 .catch(error=>{
                     console.log(error);
+                    this.props.showNotifFailPosts();                         
+                        
+                        setTimeout(()=>{
+                            this.props.hideNotification(); 
+                        },4000);
                     /* this.setState({               
                         notificationClass:"bad",
                         notificationMessage: `Something went wrong! Posts weren\`t uploaded. `,  
@@ -124,10 +127,11 @@ import { Row, } from 'reactstrap';
 
 
 const mapStateToProps = (store)=>{
+    // console.log("STRANGE")
     return {
-        /* store : store.Todos, */
         // store : store.Todos,
-        notification : store.Notification, 
+        // store : store.Todos,
+        notification : store.NotificationIndex,
         
     }
 }
@@ -135,8 +139,9 @@ const mapStateToProps = (store)=>{
 const mapDispatchToProps = {
     /* addAllTodo,
     removeTodo, */
-    showNotification,
+    showNotifAllOK,
     hideNotification,
+    showNotifFailPosts,
 }
 
 

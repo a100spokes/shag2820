@@ -1,11 +1,20 @@
-import {NOTIFICATION_SHOW, NOTIFICATION_HIDE} from "@redux/types";
+import {NOTIFICATION_SHOW_ALL_LOAD_POSTS,NOTIFICATION_SHOW_FAIL_LOAD_POSTS, NOTIFICATION_HIDE} from "@redux/types";
 
 
-export function showNotification() {
+export function showNotifAllOK() {
     console.log("showNotification Action");
     return {
-        type : NOTIFICATION_SHOW,
-        data : true
+        type : NOTIFICATION_SHOW_ALL_LOAD_POSTS,
+        data : true ,
+        // text: "wwwwww"
+    }
+}
+export function showNotifFailPosts() {
+    
+    return {
+        type : NOTIFICATION_SHOW_FAIL_LOAD_POSTS,
+        data : true ,
+        // text: "wwwwww"
     }
 }
 
