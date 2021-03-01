@@ -1,13 +1,13 @@
-import {NOTIFICATION_SHOW, NOTIFICATION_HIDE} from "@redux/types";
-
+import {NOTIFICATION_SHOW, NOTIFICATION_HIDE} from  "@redux/types";
 export default function Notification(store=false, action) {
-    switch (action.type) {
+    console.log("Notification reduser1")
+    switch (action.type) {        
         case NOTIFICATION_SHOW : {
             return true;
         }
 
         case NOTIFICATION_HIDE : {
-            return false;
+            return false
         }
 
         default : {

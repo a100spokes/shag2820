@@ -8,13 +8,10 @@ import axios from "axios";
 // import Add from "@comp/add/Add";
 import Filter from "@comp/filter/Filter";
 import Notif from "@comp/notification/Notification";
-
-import {connect} from "react-redux";
-import {showNotif, hideNotif} from "@redux/actions/notif_A";
 // const [modal, setModal] = useState(false)
  
 
-class TodosList extends Component{
+export default class TodosList extends Component{
      
     constructor(props) {
         console.log("constructor")
@@ -182,6 +179,22 @@ class TodosList extends Component{
                     console.log("setState")
                 })
             })
+
+            .catch(error=>{
+                console.log(error);
+                this.setState({               
+                    notificationClass:"bad",
+                    notificationMessage: `Something went wrong! Todos weren\`t uploaded. `,  
+                    notificationStat: true,   
+                })
+                setTimeout(()=>{
+                    this.setState({                
+                        notificationStat: false,
+                        notificationClass:"good",
+                        notificationMessage: `Todos were uploaded `,    
+                    })                
+                },4000);            
+            })
     },1000)
 }
 
@@ -314,20 +327,3 @@ sortTodos () {
 }
 
 
-
-const mapStateToProps = (store)=>{
-    return {
-        store : store.Todos,
-        loader : store.Loader,
-    }
-}
-
-const mapDispatchToProps = {
-    /* addAllTodo,
-    removeTodo, */    
-    showNotif, 
-    hideNotif
-}
-
-
-export default connect(mapStateToProps,mapDispatchToProps)(TodosList)

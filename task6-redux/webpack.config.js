@@ -145,7 +145,8 @@ const config = {
             "@static": path.resolve(__dirname, 'src/static/'),
             "@elems": path.resolve(__dirname, 'src/elements/'),
             "@comp": path.resolve(__dirname, 'src/components/'),
-            "@pages": path.resolve(__dirname, 'src/pages/')
+            "@pages": path.resolve(__dirname, 'src/pages/'),
+            "@redux": path.resolve(__dirname, 'src/redux/')
         }
     }
 }

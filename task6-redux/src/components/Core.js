@@ -2,30 +2,31 @@
 import "@comp/style.core.scss";
 import React, { useState } from 'react';
 import Home from "@pages/home/home";
-import PostList from "@pages/posts/postList";
-import TodoList from "@pages/todos/List";
 import Contacts from "@pages/contacts/contacts";
+
 import About from "@pages/about/about";
+import TodoList from "@pages/todos/List";
+import PostList from "@pages/posts/postList";
 import TodosReadMore from "@pages/todos/ReadMore";
 import PostReadMore from "@pages/posts/ReadMore";
 import ErrorPage from "@pages/404/404";
 import Header from "@elems/Header";
-
-import { Container, Row, Col, Nav, NavItem,} from 'reactstrap';
-
 import { 
     BrowserRouter as Router, 
     Switch,
     Route, Link
 } from "react-router-dom";
-
-import {showNotif} from "@redux/actions/notif_A";
-import Notif from "@comp/notification/Notification";
-
+import { Container, Row, Col, Nav, NavItem, Dropdown, DropdownItem, DropdownToggle, DropdownMenu, NavLink } from 'reactstrap';
+import {showNotification} from "@redux/actions/notification";
+import Notification from "@comp/notification/Notification";
 import {connect} from "react-redux";
 
 
+import Notif from "@comp/notification/Notification";
+
+// export default function Core() {
 function Core(props) {
+
     return(<Router>
             <Container fluid>
                 <Row>
@@ -91,21 +92,21 @@ function Core(props) {
                     </Col>
                  
                 </Row>
-                {props.notif ? <Notif /> : null}
+                {props.notification ? <Notification /> : null}
             </Container>
         </Router>
     )
 }
-
 const mapStateToProps = (store)=>{
     return {
-        notif : store.Notif,
+        notification : store.Notification,
     }
 }
 
-const mapDispatchToProps = {
-    showNotif
+const mapDispatchToProps = { 
+    showNotification
 }
 
 
 export default connect(mapStateToProps,mapDispatchToProps)(Core)
+

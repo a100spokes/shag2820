@@ -2,26 +2,22 @@ import React, { useState } from 'react';
 import { Row,Col } from 'reactstrap';
 import  "@comp/notification/Notification.style.scss";
 
-const Notification = (props) => {
-
-    /*
-* 
-*
-
-const mapDispatchToProps = {
-    hideNotification
-}
+// const Notification = (props) => {
+export default function Notification() {
 
 
-export default connect(null,mapDispatchToProps)(Loader)
-* */
+    // const {ok, message, active , cancel} = props;
   
 
     return (                       
-        <div className={'notif-' + props.status}>        
+        // <div className={'notif-' + props.status}>        
+    <div className={'notif-bad'}>        
+
                     <Row >
                         <Col lg={12}>
-                        {props.children}
+                        {/* {props.children} */}
+                    {"hoppy"}
+
                         </Col>
                         
                     </Row>            
@@ -29,4 +25,4 @@ export default connect(null,mapDispatchToProps)(Loader)
     );
 }
 
-export default Notification;
+// export default Notification;

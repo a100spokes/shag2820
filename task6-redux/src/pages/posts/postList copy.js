@@ -3,14 +3,11 @@ import PostItem from "@pages/posts/postItem";
 import Loader from "@comp/loader/Loader";
 import axios from "axios";
 import ComFilter from "@comp/comFilter/comFilter";
-import {connect} from "react-redux";
-import {showNotification, hideNotification} from "@redux/actions/notification";
-
 import Notif from "@comp/notification/Notification";
 
 import { Row, } from 'reactstrap';
 
-/* export default  */class PostList extends Component{
+export default class PostList extends Component{
     constructor(props) {
         console.log("constructor")
         super(props);
@@ -51,11 +48,10 @@ import { Row, } from 'reactstrap';
     }
 
     componentDidMount() {
-
         setTimeout(()=>{
-            axios.get("https://jsonplaceholder.typicode.com/posts")
+            axios.get("https://jsonplaceholder.typicode.com/posts1")
                 .then(response=>{
-                    console.log(response.data) 
+                    console.log(response.data)
                     // bad this.state.todos = response.data;
 
                     this.setState({
@@ -64,13 +60,15 @@ import { Row, } from 'reactstrap';
                        /*  notificationMessage: `Posts were uploaded `,   
                         notificationClass:"good",
                         notificationStat: true, */
-                        
                     },()=>{
                         console.log("setState")
-                        this.props.showNotification();                         
-                        setTimeout(()=>{
-                            this.props.hideNotification(); 
-                        },4000);                       
+                        /* setTimeout(()=>{
+                            this.setState({                
+                                notificationStat: false,
+                                notificationClass:"good",
+                                notificationMessage: `Posts were uploaded `,    
+                            })                
+                        },4000);   */                       
                     })
                 })
                 .catch(error=>{
@@ -121,27 +119,5 @@ import { Row, } from 'reactstrap';
     }
 
 }
-
-
-const mapStateToProps = (store)=>{
-    return {
-        /* store : store.Todos, */
-        // store : store.Todos,
-        notification : store.Notification, 
-        
-    }
-}
-
-const mapDispatchToProps = {
-    /* addAllTodo,
-    removeTodo, */
-    showNotification,
-    hideNotification,
-}
-
-
-export default connect(mapStateToProps,mapDispatchToProps)(PostList)
-
-
 
 
