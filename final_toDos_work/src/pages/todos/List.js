@@ -117,11 +117,11 @@ changeStatus(id) {
             })
                 .then(response=>{                   
                     this.props.addAllTodo(response.data.data);  
-                    setTimeout(()=>{
+                    /* setTimeout(()=>{
                         this.props.hideNotification(); 
                         // this.props.showNotifFailTodos();                     
                         console.log("hoppy");
-                    },4000)
+                    },4000) */
                 })
 
            

@@ -18,12 +18,8 @@ import "@elems/forms/style.core.scss";
 import Notif from "@comp/notification/Notification";
 import {up} from "@pages/todos/List";
 import axios from "axios";
-import React, { useState,Component} from 'react';
+import React, { useState } from 'react';
 import { Collapse, Button,Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-import {addAllTodo, removeTodo} from "@redux/actions/todos";
-import {connect} from "react-redux";
-
-
 
 const AddPostItemForm = (props) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -103,27 +99,12 @@ const AddPostItemForm = (props) => {
             },
         })
             .then(response=>{
-                /* console.log(response)                
+                console.log(response)                
                 setNotif(true);  
                 form.reset();
                 setTimeout(()=>{
                     setNotif(false);  
-                },4000); */
-
-
-                axios.get(`${process.env.API_URL_XHR}`,{
-                    method : "GET",
-                    headers: {
-                        'apptoken': process.env.API_KEY,
-                    },
-                })
-                .then(response=>{
-                   /*  this.setState({                   
-                        loader: false,
-                    }) ; */
-                    this.props.addAllTodo(response.data.data);
-                    console.error(response.data.data);
-                })
+                },4000);
                 
             })     
                    
@@ -142,19 +123,4 @@ const AddPostItemForm = (props) => {
     }
 }
 
-
-const mapStateToProps = (store)=>{
-   
-    return {        
-         
-        store : store.Todos,      
-    }
-}
-
-const mapDispatchToProps = {    
-    
-    addAllTodo,
-    removeTodo,
-}
-// export default AddPostItemForm;
-export default connect(mapStateToProps,mapDispatchToProps)(AddPostItemForm)
+export default AddPostItemForm;
