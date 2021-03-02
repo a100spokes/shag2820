@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Modal, ModalHeader, ModalBody, Row,Col } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, Row,Col, ButtonGroup,ModalFooter } from 'reactstrap';
 
 const Confirm = (props) => {
 
@@ -33,14 +33,17 @@ const Confirm = (props) => {
                     <Row>
                         <Col lg={12}>
                             {props.children}
-                        </Col>
-                        <Col lg={12}>
-                            <Button color={ok.color} onClick={ok.fn}>{ok.title}</Button>
-                            <Button color="secondary" onClick={cancel}>Отмена</Button>
-                        </Col>
+                        </Col>                    
                     </Row>
 
                 </ModalBody>
+
+                         <ModalFooter>                
+                            {/* <ButtonGroup> */}
+                                <Button color={ok.color} onClick={ok.fn}>{ok.title}</Button>
+                                <Button color="secondary" onClick={cancel}>cancel</Button>
+                            {/* </ButtonGroup> */}
+                        </ModalFooter>
             </Modal>
         </div>
     );

@@ -30,7 +30,7 @@ export default class TodoItem extends Component{
                     <CardTitle tag="h5">#{item.id} {item.title}</CardTitle> 
                     <Row className="dead">
                     {!item.completed ? <div className="container-red"><div className="gg-alarm"></div><span ><i>Dead line :</i> {item.dead_line}</span></div>  :<div className="container-green"><div className="gg-check-r"></div><span ><i>Compleated :</i> {item.updated_at}</span></div>}
-                    {/* <div className="gg-alarm"></div><span ><i>Dead line :</i> {item.dead_line}</span>       */}
+                    
 
                     </Row>
                     <Row>
@@ -55,11 +55,14 @@ export default class TodoItem extends Component{
                         </Col>
                     </Row>
                 </CardBody>
+
+
                 <Confirm
                     active={this.state.modalUpdate}
-                    message={`Обновить статус записи с id ${item.id}`}
+                    message={`Update todo's status with id # ${item.id}?`}
+                    
                     ok={{
-                        title:"Обновить",
+                        title:"change it!",
                         color: "success",
                         fn : ()=>{
                             this.toggleModalUpdate();
@@ -68,15 +71,15 @@ export default class TodoItem extends Component{
                     }}
                     cancel={this.toggleModalUpdate}
                 ><Row>
-                    <Col lg={12}>это будет пост с id {item.id}</Col>
-                    <Col lg={12}>text</Col>
+                    <Col lg={12}>You can change it back latter. (item #{item.id})</Col>
+                   
                 </Row></Confirm>
 
                 <Confirm
                     active={this.state.modalRemove}
-                    message={`Удалить запись с id ${item.id}`}
+                    message={`Delete todo wwith id # ${item.id}?`}
                     ok={{
-                        title:"Удалить",
+                        title:"sure",
                         color: "danger",
                         fn : ()=>{
                             this.toggleModalRemove();
@@ -84,9 +87,9 @@ export default class TodoItem extends Component{
                         }
                     }}
                     cancel={this.toggleModalRemove}
-                >
+                ><Col lg={12}>You can`t change it back latter. (item #{item.id})</Col>
 
-                    <Footer />
+                    {/* <Footer /> */}
                 </Confirm>
             </Card>
         )

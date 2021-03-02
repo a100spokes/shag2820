@@ -6,7 +6,7 @@ import AddPostItemForm from "@elems/forms/AddPostItemForm";
 import axios from "axios";
 import {connect} from "react-redux";
 import Filter from "@comp/filter/Filter";
-import {hideNotification,showNotifFailTodos,showNotifAllOKTodos,} from "@redux/actions/notification";
+import {hideNotification,showNotifFailTodos,showNotifAllOKTodos,showNotifRemove,showNotifRemoveNot,showNotifUpdate,} from "@redux/actions/notification";
 
 
  
@@ -19,7 +19,7 @@ import {hideNotification,showNotifFailTodos,showNotifAllOKTodos,} from "@redux/a
         this.state = {
             todos: [],
             sort : "all",
-            cls:"notif" ,           
+           /*  cls:"notif" ,    */        
             loader: true,          
         }
         this.changeStatus = this.changeStatus.bind(this);
@@ -90,14 +90,12 @@ changeStatus(id) {
              }
              return item
          })],
-         notificationStat: true,   
-         notificationMessage: `Todo # ${id} was successfully modified!` 
+       
      })
+     this.props.showNotifUpdate(); 
      setTimeout(()=>{
-        this.setState({                
-        notificationStat: false
-    })
-    },2000)
+        this.props.hideNotification(); 
+    },2000); 
 }
 
 
@@ -111,30 +109,22 @@ changeStatus(id) {
         .then(response=>{
             this.setState({
                 todos : [...this.state.todos.filter(item=>item.id!=id ? true : false)],
-                notificationStat: true,   
-                notificationMessage: `Todo # ${id} was successfully deleted! `,  
+               
             })
+            this.props.showNotifRemove(); 
+            
             setTimeout(()=>{
-                this.setState({                
-                notificationStat: false
-            })
-            },4000)   
+                this.props.hideNotification(); 
+            },2000); 
         })            
         
         .catch(error=>{
+            this.props.showNotifRemoveNot(); 
             console.log(error);
-            this.setState({               
-                notificationClass:"bad",
-                notificationMessage: `Something went wrong! Todos # ${id} wasn\`t deleted. `,  
-                notificationStat: true,   
-            })
+            
             setTimeout(()=>{
-                this.setState({                
-                    notificationStat: false,
-                    notificationClass:"good",
-                    notificationMessage: `Todo # ${id} was successfully deleted! `,    
-                })                
-            },4000);            
+                this.props.hideNotification(); 
+            },2000);            
         })   
 }
 
@@ -179,6 +169,9 @@ const mapDispatchToProps = {
     showNotifAllOKTodos,
     hideNotification,
     showNotifFailTodos,
+    showNotifRemove,
+    showNotifRemoveNot,
+    showNotifUpdate,
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(TodosList)
