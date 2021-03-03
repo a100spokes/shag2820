@@ -7,6 +7,7 @@ import axios from "axios";
 import {connect} from "react-redux";
 import Filter from "@comp/filter/Filter";
 import {hideNotification,showNotifFailTodos,showNotifAllOKTodos,showNotifRemove,showNotifRemoveNot,showNotifUpdate,} from "@redux/actions/notification";
+// import data from "@comp/confirm/Confirm_update";
 
 
  
@@ -24,6 +25,7 @@ import {hideNotification,showNotifFailTodos,showNotifAllOKTodos,showNotifRemove,
         }
         this.changeStatus = this.changeStatus.bind(this);
         this.removeItem = this.removeItem.bind(this);
+        this.updateItem = this.updateItem.bind(this);
         this.filter = this.filter.bind(this);
         this.sortTodos = this.sortTodos.bind(this);
         
@@ -40,6 +42,7 @@ import {hideNotification,showNotifFailTodos,showNotifAllOKTodos,showNotifRemove,
 
                 {todos.map((item)=> <TodoItem item={item}
                                      remove={this.removeItem}
+                                     update={this.updateItem}
                                      change={this.changeStatus}
                                      key={item.id} /> 
                 )}
@@ -127,7 +130,47 @@ changeStatus(id) {
             },2000);            
         })   
 }
-
+updateItem(id) {
+/*
+* как получить дату из import ConfirmUpdate from "@comp/confirm/Confirm_update";
+*/
+    axios.put(`${process.env.API_URL_XHR}/${id}`,data/* ,data */,{
+        headers: {
+            'apptoken': process.env.API_KEY,
+        },
+    })
+        .then(response=>{
+            console.log(id)
+            /* this.setState({
+                todos : [...this.state.todos.map(item=>{
+                    if(item.id==id) {
+                        item.completed = !item.completed
+                    }
+                    return item
+                })],
+              
+            }) */
+            
+           /*  this.setState({
+                todos : [...this.state.todos.filter(item=>item.id!=id ? true : false)],
+               
+            })
+            this.props.showNotifRemove(); 
+            
+            setTimeout(()=>{
+                this.props.hideNotification(); 
+            },2000);  */
+        })            
+        
+        .catch(error=>{
+            this.props.showNotifRemoveNot(); 
+            console.log(error);
+            
+            setTimeout(()=>{
+                this.props.hideNotification(); 
+            },2000);            
+        })   
+}
 
 
 filter (type) { 

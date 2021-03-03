@@ -19,7 +19,7 @@ import Notif from "@comp/notification/Notification";
 import {up} from "@pages/todos/List";
 import axios from "axios";
 import React, { useState } from 'react';
-import { Collapse, Button,Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Collapse, Button,Form, FormGroup, Label, Input,} from 'reactstrap';
 
 const AddPostItemForm = (props) => {
     const [isOpen, setIsOpen] = useState(false);
