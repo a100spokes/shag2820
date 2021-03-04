@@ -1,14 +1,27 @@
 // import React from "react";
+// import TodoList from "@pages/todos/List";
+// import PostList from "@pages/posts/postList";
+// import Contacts from "@pages/contacts/contacts";
+// import About from "@pages/about/about";
+// import ErrorPage from "@pages/404/404";
+
 import "@comp/style.core.scss";
-import React, { useState } from 'react';
+import React, { useState,useEffect,Suspense } from 'react';
+// import {createPortal} from "react-dom";
+import Loader from "@comp/loader/Loader";
 import Home from "@pages/home/home";
-import Contacts from "@pages/contacts/contacts";
-import About from "@pages/about/about";
-import TodoList from "@pages/todos/List";
-import PostList from "@pages/posts/postList";
+
+const TodosList  = React.lazy(()=>import(/* webpackChunkName: "todos" */ "@pages/todos/List"));
 import TodosReadMore from "@pages/todos/ReadMore";
+
+const PostList  = React.lazy(()=>import(/* webpackChunkName: "posts" */ "@pages/posts/postList"));
 import PostReadMore from "@pages/posts/ReadMore";
-import ErrorPage from "@pages/404/404";
+
+const Contacts  = React.lazy(()=>import(/* webpackChunkName: "todos" */ "@pages/contacts/contacts"));
+const About  = React.lazy(()=>import(/* webpackChunkName: "todos" */ "@pages/about/about"));
+
+const ErrorPage  = React.lazy(()=>import(/* webpackChunkName: "404" */ "@pages/404/404"));
+
 import Header from "@elems/Header";
 import NotificationComp from "@comp/notification/Notification";
 
@@ -37,23 +50,7 @@ function Core(props) {
                     <Col lg={12} md={12}>
                     
                     <Nav tabs className={"menu"} >
-                        {/* <ul>
-                            <li>
-                                <Link to={"/"}>Home</Link>
-                            </li>
-                            <li>
-                                <Link to={"/todos"}>Todos</Link>
-                            </li>
-                            <li>
-                                <Link to={"/posts"}>Posts</Link>
-                            </li>
-                            <li>
-                                <Link to={"/contacts"}>Contacts</Link>
-                            </li>
-                            <li>
-                                <Link to={"/about"}>About</Link>
-                            </li>
-                        </ul> */}
+                      
                         <NavItem >
                         <Link to={"/"}>Home</Link> 
                         </NavItem>
@@ -73,18 +70,52 @@ function Core(props) {
                     </Col>
                     <Col lg={12} md={12}>
                         <Switch>
-                            <Route exact path={"/"} component={Home}/>
-                            <Route exact path={"/todos"} component={TodoList}/>
-                            <Route exact path={"/posts"} component={PostList}/>
-                            <Route exact path={"/todos/:id/:test"} component={TodosReadMore}/>
-                            <Route exact path={"/posts/:userId/:id/:test"} component={PostReadMore}/>
-                            <Route exact path={"/contacts"} component={Contacts}/>
-                            <Route exact path={"/about"} component={About}/>
-                            {/*<Route exact path={"/posts/:id"} component={ItemReadMore}/>*/}
-                            {/*<Route exact path={"/about"} component={ItemReadMore}/>*/}
-                            {/*<Route exact path={"/contacts"} component={ItemReadMore}/>*/}
-                            {/* пример
-                                <Route exact path={"/post/:id/:name/:someParam"} component={ItemReadMore}/>*/}
+                            ////*without Suspence start
+                            {/* <Route exact path={"/"} component={Home}/> */}
+                            {/* <Route exact path={"/todos"} component={TodoList}/> */}
+                            {/* <Route exact path={"/posts"} component={PostList}/> */}
+                            {/* <Route exact path={"/contacts"} component={Contacts}/> */}
+                            {/* <Route exact path={"/about"} component={About}/> */}
+                            ////*without Suspence end
+
+                                <Route exact path={"/"} >
+                                    <Suspense fallback={<Loader />}>
+                                        <Home />
+                                    </Suspense>
+                                </Route>
+
+
+                                <Route exact path={"/todos"} >
+                                    <Suspense fallback={<Loader />}>
+                                        <TodosList />
+                                    </Suspense>
+                                </Route>
+
+                                <Route exact path={"/todos/:id/:test"} component={TodosReadMore}/>
+
+
+                                <Route exact path={"/posts"} >
+                                    <Suspense fallback={<Loader />}>
+                                        <PostList />
+                                    </Suspense>
+                                </Route>
+
+                                <Route exact path={"/posts/:userId/:id/:test"} component={PostReadMore}/>                                
+
+                                
+                                <Route exact path={"/contacts"} >
+                                    <Suspense fallback={<Loader />}>
+                                        <Contacts />
+                                    </Suspense>
+                                </Route>
+                                
+                                
+                                <Route exact path={"/about"} >
+                                    <Suspense fallback={<Loader />}>
+                                        <About />
+                                    </Suspense>
+                                </Route>
+                         
                             <Route component={ErrorPage}/>
                         </Switch>
                         {/*<ListPosts />*/}
@@ -93,6 +124,9 @@ function Core(props) {
                 </Row>
                 {props.notificationProp ? <NotificationComp status={props.notificationClass}>{props.notificationText}</NotificationComp> : null}
             </Container>
+            {/* {
+                createPortal(<div>sas</div>, document.getElementById("modal"))
+            } */}
         </Router>
     )
 }
