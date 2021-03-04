@@ -25,7 +25,7 @@ export default class TodoItem extends Component{
 
 
     render() {
-        let {item,change, remove, update} = this.props; 
+        let {item,change, remove, update,data1, tabData} = this.props; 
 
         return(
             <Card>
@@ -113,13 +113,15 @@ export default class TodoItem extends Component{
                 <ConfirmUpdate
                     active={this.state.modalUpdateForm}
                     message={`Update todo's with id # ${item.id}?`}
+                    itemId={item.id} //todos: save to prop ID
                     
                     ok={{
-                        title:"update it!",
-                        color: "warning",
+                        title:"done",
+                        color: "success",
                         fn : ()=>{
                             this.toggleModalUpdateForm();
                             update(item.id);
+                            // change(item.id);
                         }
                     }}
                     cancel={this.toggleModalUpdateForm}>
@@ -147,6 +149,7 @@ export default class TodoItem extends Component{
         this.setState({
             modalUpdateForm : !this.state.modalUpdateForm
         })
+        
     }
 }
 

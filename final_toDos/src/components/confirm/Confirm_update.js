@@ -6,7 +6,7 @@ import { Form, FormGroup, Label, Input, Button, Modal, ModalHeader, ModalBody, M
 
 const ConfirmUpdate = (props) => {
 
-    const {ok, message, active , cancel} = props;
+    const {ok, message, active , cancel, itemId,id, closeForm} = props;
  
 
     return (
@@ -23,7 +23,8 @@ const ConfirmUpdate = (props) => {
                             type="text" 
                             name="title" 
                             id="titleText" 
-                            placeholder={"title"}             
+                            defaultValue={"title"}             
+                            // placeholder={"title"}             
                             />
                         </FormGroup>  
 
@@ -33,8 +34,9 @@ const ConfirmUpdate = (props) => {
                             required
                             type="textarea" 
                             name="description" 
-                            id="exampleText" 
-                            placeholder={"description"}             
+                            id="exampleText"                             
+                            defaultValue={"description"}             
+                            // placeholder={"description"}             
                             />
                         </FormGroup>
 
@@ -49,7 +51,7 @@ const ConfirmUpdate = (props) => {
                             />
                         </FormGroup>   
             
-                        <Button>ADD</Button>
+                        <Button color="info">update</Button>
 
                     </Form>
                 </ModalBody>
@@ -71,23 +73,21 @@ const ConfirmUpdate = (props) => {
         let data =  new FormData(e.target);
             data.set('order',0);
             data.set('completed',0);
-
+           
+ ////////////////////
+//  props.submit(data,props.id);
+ //////////////////////////
 /*
-* как получить айди из тудус/лист
+* как получить айди из тудус/лист ++++++++++
 */
-        axios.put(`${process.env.API_URL_XHR}/68`,data,{
+        axios.put(`${process.env.API_URL_XHR}/${itemId}`,data,{ //todos: get from prop
             headers: {
                 'apptoken': process.env.API_KEY,
             },
         })
             .then(response=>{
-                console.log(response)                
-                // setNotif(true);  
-                form.reset();
-                /* setTimeout(()=>{
-                    setNotif(false);  
-                },4000); */
-                
+                console.log(response)                               
+                form.reset();                
             })     
                    
             
@@ -102,7 +102,10 @@ const ConfirmUpdate = (props) => {
                     setNotifText('done!');
                 },4000); */
             })
-    }
+    
+        }
+    
+
 }
 
 export default ConfirmUpdate;
