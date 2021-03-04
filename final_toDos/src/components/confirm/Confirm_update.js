@@ -1,14 +1,47 @@
-import React, { useState,Fragment } from 'react';
+import React, { useState,Fragment,useEffect } from 'react';
 import axios from "axios";
 import "@elems/forms/style.core.scss";
 
 import { Form, FormGroup, Label, Input, Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
-const ConfirmUpdate = (props) => {
+// const ConfirmUpdate = (props) => {
+    export default function ConfirmUpdate (props) {
 
     const {ok, message, active , cancel, itemId,id, closeForm} = props;
- 
+    ////////////////////////
+    let [item, setItem] = useState(null);    
 
+
+    if(item !=null) {
+    useEffect(()=>{
+        axios.get(`${process.env.API_URL_XHR}/${itemId}`,{
+            method: 'GET',
+            headers: {
+              'apptoken': process.env.API_KEY,
+            }
+          }
+        )
+        .then(response=>{
+            setItem(response.data);            
+        })
+        .catch(error => console.error(error))
+    },[]); 
+}
+    /////////////////////////////////////
+//   console.log(item.title);
+
+  console.log("item",item);
+  console.log("itemId", itemId);
+   let title;
+   let title1;
+  if(item !=null) {
+    console.error(item.title)
+    title=item.title;
+}
+console.error("let title",title)
+  
+//   console.log(item.id);
+    // dataGet( );
     return (
         <Fragment>        
             <Modal isOpen={active} toggle={cancel}>
@@ -35,7 +68,8 @@ const ConfirmUpdate = (props) => {
                             type="textarea" 
                             name="description" 
                             id="exampleText"                             
-                            defaultValue={"description"}             
+                            // defaultValue={"description"}             
+                            // defaultValue={item.id}             
                             // placeholder={"description"}             
                             />
                         </FormGroup>
@@ -66,7 +100,7 @@ const ConfirmUpdate = (props) => {
         </Fragment>
     );
 
-
+    
     function submit(e) { 
         e.preventDefault();
         const form = e.target;
@@ -104,8 +138,28 @@ const ConfirmUpdate = (props) => {
             })
     
         }
-    
+        
+        /* function dataGet( ) { 
+        axios.get(`${process.env.API_URL_XHR}/${itemId}`,{
+            method : "GET",
+            headers: {
+                'apptoken': process.env.API_KEY,
+            },
+        })
+        .then(response=>{
+            console.log(response.data)
+            console.log(response.data.title)
+            console.log(response.data.description)
+            console.log(response.data.deadline)
+            
+            
+        })
 
+        .catch(error=>{
+            console.log(error);
+           
+        })} */
+        
 }
 
-export default ConfirmUpdate;
+// export default ConfirmUpdate;

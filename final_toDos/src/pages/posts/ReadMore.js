@@ -1,11 +1,12 @@
 import "@pages/posts/style.posts.scss";
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, Fragment} from "react";
 import {
     Card, Row, Col, CardBody,
     CardTitle, Button, CardText, CardSubtitle, Toast, ToastBody, ToastHeader
 } from 'reactstrap';
 import {Link} from "react-router-dom";
 import axios from "axios";
+import Loader from "@comp/loader/Loader";
 
 export default function ReadMore (props) {
     /*
@@ -23,6 +24,7 @@ export default function ReadMore (props) {
     * }
     * */
     let [item, setItem] = useState(null);
+    let [loader, setILoader] = useState(true);
     let [reviews, setReviews] = useState([]);  
 
     useEffect(()=>{
@@ -34,12 +36,14 @@ export default function ReadMore (props) {
         axios.get(`${process.env.API_URL}/comments?postId=${props.match.params.id}`)
             .then(response=>{
                 setReviews(response.data);
+                setILoader(false);
             })
     },[]);   
 
     return (
+        <Fragment>
+        {(item!=null)&&(loader!=true) ?
       <Card>
-      {item!=null ?
       <CardBody>
           <CardTitle tag="h5">Title: {item.title}</CardTitle>
           <CardSubtitle tag="h6" className="mb-2 text-muted">for userID # {item.userId}, post # {item.id}</CardSubtitle>
@@ -71,8 +75,9 @@ export default function ReadMore (props) {
                           </div>)
                       }         
       </CardBody>
-      : null}
       </Card>
+      : <Loader/>}
+      </Fragment>
           )
 }
 

@@ -21,16 +21,16 @@ export default class TodoItem extends Component{
         this.toggleModalRemove=this.toggleModalRemove.bind(this);
         this.toggleModalUpdateForm=this.toggleModalUpdateForm.bind(this);
     }
-
+    
 
 
     render() {
-        let {item,change, remove, update,data1, tabData} = this.props; 
+        let {item,change, remove, update,} = this.props; 
 
         return(
             <Card>
                 <CardBody>
-                    <CardTitle tag="h5"> <Badge color="dark" /* pill */>#{item.id}</Badge> {item.title}</CardTitle> 
+                    <CardTitle tag="h5"> <Badge color="dark">#{item.id}</Badge> {item.title}</CardTitle> 
                     <Row className="dead">
                     {!item.completed ? <div className="container-red"><div className="gg-alarm"></div><span ><i>Dead line :</i> {item.dead_line}</span></div>  :<div className="container-green"><div className="gg-check-r"></div><span ><i>Compleated :</i> {item.updated_at}</span></div>}
                     
@@ -151,6 +151,9 @@ export default class TodoItem extends Component{
         })
         
     }
+
+
+    
 }
 
 
