@@ -1,4 +1,4 @@
-import React, {Component} from "react"; 
+import React, {Component, Fragment} from "react"; 
 import TodoItem from "@pages/todos/Item";
 import Loader from "@comp/loader/Loader";
 import {Row} from 'reactstrap'; 
@@ -37,7 +37,7 @@ import {hideNotification,showNotifFailTodos,showNotifAllOKTodos,showNotifRemove,
         let todos = this.sortTodos();
 
         return(
-            <div>             
+            <Fragment>            
                 {loader ? <Loader /> : <Row><Filter filterType={this.filter}/><AddPostItemForm /></Row>}   
 
                 {todos.map((item)=> <TodoItem item={item}
@@ -45,8 +45,8 @@ import {hideNotification,showNotifFailTodos,showNotifAllOKTodos,showNotifRemove,
                                      update={this.updateItem}
                                      change={this.changeStatus}
                                      key={item.id} /> 
-                )}
-            </div>
+                )}            
+            </Fragment>
         )
     }    
 

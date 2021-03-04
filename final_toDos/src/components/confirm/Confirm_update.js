@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,Fragment } from 'react';
 import axios from "axios";
 import "@elems/forms/style.core.scss";
 
@@ -10,64 +10,58 @@ const ConfirmUpdate = (props) => {
  
 
     return (
-        <div>
+        <Fragment>        
             <Modal isOpen={active} toggle={cancel}>
                 <ModalHeader toggle={cancel}>{message}</ModalHeader>
                 <ModalBody>
+                    <Form className="mainForm" onSubmit={submit}>   
 
-                    {/* <Row>
-                        <Col lg={12}>
-                            {props.children}
-                        </Col>                    
-                    </Row> */}
+                        <FormGroup>
+                            <Label for="titleText">Title</Label>
+                            <Input 
+                            required
+                            type="text" 
+                            name="title" 
+                            id="titleText" 
+                            placeholder={"title"}             
+                            />
+                        </FormGroup>  
 
-<Form className="mainForm" onSubmit={submit}>   
-                <FormGroup>
-                    <Label for="titleText">Title</Label>
-                    <Input 
-                    required
-                    type="text" 
-                    name="title" 
-                    id="titleText" 
-                    placeholder={"title"}             
-                    />
-                </FormGroup>  
+                        <FormGroup>
+                            <Label for="exampleText">Description</Label>
+                            <Input 
+                            required
+                            type="textarea" 
+                            name="description" 
+                            id="exampleText" 
+                            placeholder={"description"}             
+                            />
+                        </FormGroup>
 
-                <FormGroup>
-                    <Label for="exampleText">Description</Label>
-                    <Input 
-                    required
-                    type="textarea" 
-                    name="description" 
-                    id="exampleText" 
-                    placeholder={"description"}             
-                    />
-                </FormGroup>
-
-                <FormGroup>
-                    <Label for="exampleDate">Dealine</Label>
-                    <Input
-                    required
-                    type="date"
-                    name="dead_line"
-                    id="exampleDate"
-                    placeholder="date placeholder"
-                    />
-                </FormGroup>   
+                        <FormGroup>
+                            <Label for="exampleDate">Dealine</Label>
+                            <Input
+                            required
+                            type="date"
+                            name="dead_line"
+                            id="exampleDate"
+                            placeholder="date placeholder"
+                            />
+                        </FormGroup>   
             
-                <Button>ADD</Button>
-            </Form>
+                        <Button>ADD</Button>
 
+                    </Form>
                 </ModalBody>
 
-                         <ModalFooter>                
+                        <ModalFooter>                
                             {/* <ButtonGroup> */}
                                 <Button color={ok.color} onClick={ok.fn}>{ok.title}</Button>
                                 <Button color="secondary" onClick={cancel}>cancel</Button>
                             {/* </ButtonGroup> */}
                         </ModalFooter>
             </Modal>
-        </div>
+        </Fragment>
     );
 
 

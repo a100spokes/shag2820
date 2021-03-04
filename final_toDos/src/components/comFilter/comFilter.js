@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import { Button, ButtonGroup, Row, Col,} from 'reactstrap';
 
 const ComFilter = (props) => {
     const {filterType} = props;
     return (
-        <div>
-            
+        <Fragment>
             <Col lg={11}>
             <ButtonGroup className="comfilter">
                 <Button color={"secondary"} onClick={()=>filterType("show10")}>Show 10</Button>
@@ -13,8 +12,7 @@ const ComFilter = (props) => {
                 <Button color={"info"}  onClick={()=>filterType("showAll")}>Show all</Button>
             </ButtonGroup>
             </Col>
-            
-        </div>
+        </Fragment>
     );
 }
 

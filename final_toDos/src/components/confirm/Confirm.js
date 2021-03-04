@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,Fragment } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, Row,Col, ButtonGroup,ModalFooter } from 'reactstrap';
 
 const Confirm = (props) => {
@@ -25,7 +25,7 @@ const Confirm = (props) => {
 */
 
     return (
-        <div>
+        <Fragment>
             <Modal isOpen={active} toggle={cancel}>
                 <ModalHeader toggle={cancel}>{message}</ModalHeader>
                 <ModalBody>
@@ -38,14 +38,14 @@ const Confirm = (props) => {
 
                 </ModalBody>
 
-                         <ModalFooter>                
-                            {/* <ButtonGroup> */}
-                                <Button color={ok.color} onClick={ok.fn}>{ok.title}</Button>
-                                <Button color="secondary" onClick={cancel}>cancel</Button>
-                            {/* </ButtonGroup> */}
-                        </ModalFooter>
+                <ModalFooter>                
+                {/* <ButtonGroup> */}
+                    <Button color={ok.color} onClick={ok.fn}>{ok.title}</Button>
+                    <Button color="secondary" onClick={cancel}>cancel</Button>
+                {/* </ButtonGroup> */}
+                </ModalFooter>
             </Modal>
-        </div>
+        </Fragment>
     );
 }
 
