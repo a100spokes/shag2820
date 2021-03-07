@@ -14,7 +14,7 @@ export default function ReadMore (props) {
     *   this.setState={
     *       item:null
     *   }
-    *   this.setItem= this.setItem.bind(this);
+    *   this.setItem= this.setItem.bind(this); 
     * }
     *
     * setItem(){

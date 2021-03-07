@@ -14,7 +14,7 @@ import { Form, FormGroup, Label, Input, Button, Modal, ModalHeader, ModalBody, M
 
     if(item !=null) {
     useEffect(()=>{
-        axios.get(`${process.env.API_URL_XHR}/${itemId}`,{
+        axios.get(`${process.env.API_URL_XHR}/${itemId}`,{ 
             method: 'GET',
             headers: {
               'apptoken': process.env.API_KEY,
@@ -84,6 +84,18 @@ console.error("let title",title)
                             placeholder="date placeholder"
                             />
                         </FormGroup>   
+                        <FormGroup>
+                            {/* Undone <input type={"radio"} value={0} name={"completed"}/> */}
+                            <Label for="completed">it`s done</Label>
+                            <Input
+                            // required
+                            type="radio"
+                            name="completed"
+                            id="completed"
+                            value={1}
+                            placeholder="date placeholder"
+                            />
+                        </FormGroup>   
             
                         <Button color="info">update</Button>
 
@@ -106,7 +118,7 @@ console.error("let title",title)
         const form = e.target;
         let data =  new FormData(e.target);
             data.set('order',0);
-            data.set('completed',0);
+            // data.set('completed',0);
            
  ////////////////////
 //  props.submit(data,props.id);

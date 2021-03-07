@@ -86,23 +86,170 @@ import {hideNotification,showNotifFailTodos,showNotifAllOKTodos,showNotifRemove,
             })
     },1000)
 }
-
+/////////////////////////////////////////////////////////////////////////////
 changeStatus(id) { 
 
-    this.setState({
-         todos : [...this.state.todos.map(item=>{
-             if(item.id==id) {
-                 item.completed = !item.completed
-             }
-             return item
-         })],
+    let title;
+    let description;
+    let dead_line;
+    let comp;
+
+    
+
+    axios.get(`${process.env.API_URL_XHR}/${id}`,{
+        method: 'GET',
+        headers: {
+          'apptoken': process.env.API_KEY,
+        }
+      }
+    )
+    .then(response=>{
+        // console.error(response.data);  
+        // console.error("response.data.data");
        
-     })
-     this.props.showNotifUpdate(); 
-     setTimeout(()=>{
+            comp=response.data.completed;
+            comp==1?comp=0:comp=1;
+            console.error("HERE IS COMP",comp);
+            title=response.data.title;  
+            console.error(title);
+            description=response.data.description;  
+            console.error(description);
+            dead_line=response.data.dead_line;  
+            /* this.setState({
+                todos : [...this.state.todos.map(item=>{
+                    if(item.id==id) {
+                        item.completed = !item.completed
+                        console.error('HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH');
+                    }
+                    return item
+                })],
+                
+            }) */
+
+            axios.put(`${process.env.API_URL_XHR}/${id}`, {
+                "completed": `${comp}`, 
+                 
+                "title": `${title}`,
+                // "title": "title",
+                // "description": "assa",
+                "description": `${description}`,
+                // "dead_line": "2021-03-17 00:00:00",         
+                "dead_line": `${dead_line}`,         
+        },{
+          headers: {
+                          'apptoken': process.env.API_KEY,
+          }
+        })
+            .then(response=>{
+                // console.log(response)    
+                // console.log("title", title);
+                // console.log(data)    
+        
+               /*  this.setState({
+                    todos : [...this.state.todos.map(item=>{
+                        if(item.id==id) {
+                            item.completed = !item.completed
+                            console.error('ZZZZZZZZZZZZ');
+                        }
+                        return item
+                    })],
+                    
+                }) */
+                // updateItem() ;
+                this.props.showNotifUpdate(); 
+                setTimeout(()=>{
+                    this.props.hideNotification(); 
+                },2000); 
+        
+                axios.get(`${process.env.API_URL_XHR}`,{
+                    method : "GET",
+                    headers: {
+                        'apptoken': process.env.API_KEY,
+                    },
+                })
+        
+                    .then(response=>{
+                        this.setState({
+                            /* todos : [...this.state.todos.map(item=>{
+                                if(item.id==id) {
+                                    item.completed = item.completed
+                                }
+                                return item
+                            })], */
+                            todos : response.data.data,
+                        })
+                        // console.log(response.data.data);                
+                    })
+        
+                    .catch(error=>{
+                        console.log(error);                
+                    })
+                
+            })            
+            
+            .catch(error=>{
+                console.log(error);
+        
+              /*   this.props.showNotifRemoveNot(); 
+                console.log(error);
+                
+                setTimeout(()=>{
+                    this.props.hideNotification(); 
+                },2000);      */       
+            })   
+    })
+     
+    .catch(error => console.error(error))
+ 
+    // data.set('completed',0);
+   /*  let data = {
+        "completed" : 0,
+      } */
+    // axios.put(`${process.env.API_URL_XHR}/${id}`/* ,data */,{
+   /*  axios.put(`${process.env.API_URL_XHR}/74`/* ,data ,{
+        // completed : 1,
+        headers: {
+            // title : "newItem",
+            'apptoken': process.env.API_KEY,
+        },
+    },{"completed" : 0,},) */
+
+
+    
+    
+    
+    
+   /*  this.setState({
+        todos : [...this.state.todos.map(item=>{
+            if(item.id==id) {
+                item.completed = !item.completed
+            }
+            return item
+        })],
+        
+    })
+    this.props.showNotifUpdate(); 
+    setTimeout(()=>{
+        this.props.hideNotification(); 
+    },2000);  */
+}
+/////////////////////////////////////////////////////////////////////////////
+/* changeStatus(id) { 
+    
+    this.setState({
+        todos : [...this.state.todos.map(item=>{
+            if(item.id==id) {
+                item.completed = !item.completed
+            }
+            return item
+        })],
+        
+    })
+    this.props.showNotifUpdate(); 
+    setTimeout(()=>{
         this.props.hideNotification(); 
     },2000); 
-}
+} */
 
 
    removeItem(id) {

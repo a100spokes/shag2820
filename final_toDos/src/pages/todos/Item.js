@@ -9,7 +9,7 @@ import Footer from "@elems/Footer";
 import {Link} from "react-router-dom";
 
 
-export default class TodoItem extends Component{
+export default class TodoItem extends Component{ 
     constructor(props) {
         super(props);
         this.state= {
