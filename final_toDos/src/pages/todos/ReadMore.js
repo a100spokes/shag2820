@@ -1,5 +1,5 @@
 import "@pages/todos/style.todos.scss";
-import React, {Component, useEffect, useState} from "react";
+import React, {Component, useEffect, useState, Fragment} from "react";
 //import Confirm from "@comp/confirm/Confirm";
 import {
     Card, Row, Col, CardBody,
@@ -7,6 +7,7 @@ import {
 } from 'reactstrap';
 import {Link} from "react-router-dom";
 import axios from "axios";
+import Loader from "@comp/loader/Loader";
 
 let todoTitle = '';
 
@@ -26,6 +27,8 @@ export default function ReadMore (props) {
     * }
     * */
     let [item, setItem] = useState(null);    
+    let [loader, setILoader] = useState(true);
+
     
     /**
     *!^^^orign S^^^
@@ -72,16 +75,17 @@ export default function ReadMore (props) {
           }
         )
         .then(response=>{
-            setItem(response.data);            
+            setItem(response.data);     
+            setILoader(false);       
         })
         .catch(error => console.error(error))
     },[]); 
     ///////////////////
     return (
-        
-<Card>
-{item!=null ?
-<CardBody>
+        <Fragment>
+        {(item!=null)&&(loader!=true) ?
+      <Card>
+      <CardBody>
 <CardTitle tag="h5">Title: {item.title}</CardTitle>
 <CardSubtitle tag="h6" className="mb-2 text-muted">for todos # {props.match.params.id}</CardSubtitle>  
 <CardText><i>Description :</i> {item.description}</CardText>      
@@ -96,10 +100,11 @@ export default function ReadMore (props) {
             </Button>
         </Col>
     </Row>
-</CardBody>
-: null}
-</Card>
-    )
+    </CardBody>
+      </Card>
+      : <Loader/>}
+      </Fragment>
+          )
 }
 // console.error(todoTitle);
 
