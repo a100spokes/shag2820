@@ -16,19 +16,20 @@ export default AddPostItemForm; */
 // ^^^^original form^^^^
 import "@elems/forms/style.core.scss";
 import Notif from "@comp/notification/Notification";
-import {up} from "@pages/todos/List";
+ 
 import axios from "axios";
 import React, { useState } from 'react';
 import { Collapse, Button,Form, FormGroup, Label, Input,} from 'reactstrap';
 
-const AddPostItemForm = (props) => {
+    const AddPostItemForm = (props) => {
     const [isOpen, setIsOpen] = useState(false);
     const [notificationStat, setNotif] = useState(false);   
     const [notificationClass, setNotifClass] = useState("good");   
-    const [notificationMessage, setNotifText] = useState("done");    
-    
+    const [notificationMessage, setNotifText] = useState("done");  
     const toggle = () => setIsOpen(!isOpen);    
-    
+    const [status, setStatus] = useState('▼');
+    const onEntered = () => setStatus('▲');  
+    const onExited = () => setStatus('▼');
 /*
 * "title": "test",
             "description": "admin@comet24.pro",
@@ -39,9 +40,9 @@ const AddPostItemForm = (props) => {
     return (
     <div>
       {notificationStat ? <Notif status={notificationClass}>{notificationMessage}</Notif> :null} 
-      <Button outline color="warning" onClick={toggle} style={{ marginBottom: '1rem' }}>Add todos here</Button>
+      <Button outline color="warning" onClick={toggle} style={{ marginBottom: '1rem' }}>Add todos here {status}</Button>
 
-      <Collapse isOpen={isOpen}>
+      <Collapse isOpen={isOpen}  onEntered={onEntered}   onExited={onExited}>
         {/* <form onSubmit={submit}>             */}
             {/* <div><input type={"text"} name={"title"} placeholder={"title"} /></div> */}
             {/* <div><textarea name={"description"} placeholder={"description"}></textarea></div> */}
@@ -121,7 +122,7 @@ const AddPostItemForm = (props) => {
                 form.reset();
                 setTimeout(()=>{
                     setNotif(false);  
-                },4000);
+                },3000);
                 
             })     
                    
@@ -135,7 +136,7 @@ const AddPostItemForm = (props) => {
                     setNotif(false);  
                     setNotifClass('good');
                     setNotifText('done!');
-                },4000);
+                },3000);
             })
     }
 }
