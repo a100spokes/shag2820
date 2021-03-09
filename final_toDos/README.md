@@ -6,13 +6,16 @@
 
 
 - # [Made on ReactJS] 
-* JSX to JavaScript compilation via popular minification/combination libraries:
+* It uses:
  - [Webpack](http://reactjs.net/bundling/webpack.html)
+ - RouterDOM
+ - Redux & React Redux
+ - Reactstrap
 
 # Quick Start
 
 ```
-dotnet new -i React.Template
-dotnet new reactnet-vanilla
-dotnet run
+npm -i
+npm run dev
+
 ```
