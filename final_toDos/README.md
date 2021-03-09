@@ -3,6 +3,6 @@
 ```
 
 - https://github.com/facebook/create-react-app
-- s
-- d
+
+
 - # [Made on ReactJS] 
