@@ -6,3 +6,4 @@
 
 
 - # [Made on ReactJS] 
+- JSX to JavaScript compilation via popular minification/combination
