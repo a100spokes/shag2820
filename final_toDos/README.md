@@ -6,4 +6,5 @@
 
 
 - # [Made on ReactJS] 
-- JSX to JavaScript compilation via popular minification/combination
+* JSX to JavaScript compilation via popular minification/combination libraries:
+-  - [Webpack](http://reactjs.net/bundling/webpack.html)
