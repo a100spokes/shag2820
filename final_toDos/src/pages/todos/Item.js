@@ -121,7 +121,7 @@ export default class TodoItem extends Component{
                         fn : ()=>{
                             this.toggleModalUpdateForm();
                             update(item.id);
-                            // change(item.id);
+                            // change(item.id); 
                         }
                     }}
                     cancel={this.toggleModalUpdateForm}>
@@ -131,6 +131,10 @@ export default class TodoItem extends Component{
                 </ConfirmUpdate>
             </Card>
         )
+
+
+
+        
     }
 
     toggleModalUpdate(){
@@ -149,7 +153,7 @@ export default class TodoItem extends Component{
         this.setState({
             modalUpdateForm : !this.state.modalUpdateForm
         })
-        
+       
     }
 
 

@@ -109,11 +109,11 @@ changeStatus(id) {
        
             comp=response.data.completed;
             comp==1?comp=0:comp=1;
-            console.error("HERE IS COMP",comp);
+            // console.error("HERE IS COMP",comp);
             title=response.data.title;  
-            console.error(title);
+            // console.error(title);
             description=response.data.description;  
-            console.error(description);
+            // console.error(description);
             dead_line=response.data.dead_line;  
             /* this.setState({
                 todos : [...this.state.todos.map(item=>{

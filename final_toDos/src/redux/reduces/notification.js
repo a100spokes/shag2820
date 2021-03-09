@@ -1,7 +1,7 @@
 import {NOTIFICATION_SHOW_ALL_LOAD_POSTS,NOTIFICATION_SHOW_FAIL_LOAD_POSTS,NOTIFICATION_SHOW_FAIL_LOAD_TODOS, NOTIFICATION_SHOW_ALL_LOAD_TODOS, NOTIFICATION_HIDE, NOTIFICATION_SHOW_REMOVE,NOTIFICATION_SHOW_REMOVE_NOT,NOTIFICATION_SHOW_UPDATE,} from  "@redux/types";
 
 export default function NotificationFunction(store=false, action) {
-    console.log("Notification reduser1")
+    // console.log("Notification reduser1")
     switch (action.type) {  
 
         case NOTIFICATION_SHOW_ALL_LOAD_POSTS : {            

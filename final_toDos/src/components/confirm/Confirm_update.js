@@ -1,49 +1,87 @@
 import React, { useState,Fragment,useEffect } from 'react';
 import axios from "axios";
 import "@elems/forms/style.core.scss";
+import Loader from "@comp/loader/Loader";
 
 import { Form, FormGroup, Label, Input, Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 // const ConfirmUpdate = (props) => {
     export default function ConfirmUpdate (props) {
 
-    const {ok, message, active , cancel, itemId,id, closeForm} = props;
-    ////////////////////////
-    let [item, setItem] = useState(null);    
-
-
-    if(item !=null) {
-    useEffect(()=>{
-        axios.get(`${process.env.API_URL_XHR}/${itemId}`,{ 
-            method: 'GET',
-            headers: {
-              'apptoken': process.env.API_KEY,
+        const {ok, message, active , cancel, itemId,id, closeForm,titleS} = props;
+        ////////////////////////
+        let [item, setItem] = useState(null);    
+        let [loader, setILoader] = useState(false);
+        let tabTitle ='tabTitle';
+        let count =1;
+        
+        let titleTab;
+        let description;
+        let dead_line;
+        let comp;
+        /* if(item !=null) { */
+            useEffect(()=>{
+                axios.get(`${process.env.API_URL_XHR}/${itemId}`,{ 
+                    method: 'GET',
+                    headers: {
+                        'apptoken': process.env.API_KEY,
+                    }
+                }
+                )
+                .then(response=>{
+                    count=2;
+                    comp=response.data.completed;
+                    // comp==1?comp=0:comp=1;
+                    console.error("HERE IS COMP",comp);
+                    titleTab=response.data.title;  
+                    console.error(titleTab);
+                    description=response.data.description;  
+                    console.error(description);
+                    dead_line=response.data.dead_line;    
+                })
+                .catch(error => console.error(error))
+            }); 
+            /* } */
+            
+     /*    let titleTab;
+     let description;
+     let dead_line;
+     let comp; */
+     
+     /*       console.error("HERE IS itemId",itemId);
+     axios.get(`${process.env.API_URL_XHR}/${itemId}`,{
+         method: 'GET',
+         headers: {
+             'apptoken': process.env.API_KEY,
             }
-          }
+        }
         )
         .then(response=>{
-            setItem(response.data);            
-        })
-        .catch(error => console.error(error))
-    },[]); 
-}
-    /////////////////////////////////////
-//   console.log(item.title);
-
-  console.log("item",item);
-  console.log("itemId", itemId);
-   let title;
-   let title1;
-  if(item !=null) {
-    console.error(item.title)
-    title=item.title;
-}
-console.error("let title",title)
-  
-//   console.log(item.id);
-    // dataGet( );
-    return (
+            count=2;
+            comp=response.data.completed;
+            // comp==1?comp=0:comp=1;
+            console.error("HERE IS COMP",comp);
+            titleTab=response.data.title;  
+            console.error(titleTab);
+            description=response.data.description;  
+            console.error(description);
+            dead_line=response.data.dead_line;  
+            
+            setTimeout(()=>{
+                setILoader(false);  
+                
+            },1000); 
+        }) */
+        // .catch(error => console.error(error))
+        /////////////////////////////////////
+        
+        if (count==1){
+            
+            
+            return (
+        
         <Fragment>        
+             {/* (item!=null)&& */(loader!=true) ?
             <Modal isOpen={active} toggle={cancel}>
                 <ModalHeader toggle={cancel}>{message}</ModalHeader>
                 <ModalBody>
@@ -56,8 +94,10 @@ console.error("let title",title)
                             type="text" 
                             name="title" 
                             id="titleText" 
-                            defaultValue={"title"}             
-                            // placeholder={"title"}             
+                            // defaultValue={title}             
+                            defaultValue={titleTab}             
+                            // defaultValue={titleS}             
+                            // placeholder={title}             
                             />
                         </FormGroup>  
 
@@ -109,10 +149,11 @@ console.error("let title",title)
                             {/* </ButtonGroup> */}
                         </ModalFooter>
             </Modal>
+            : <Loader/>}
         </Fragment>
     );
+}
 
-    
     function submit(e) { 
         e.preventDefault();
         const form = e.target;
@@ -139,8 +180,7 @@ console.error("let title",title)
             
             .catch(error=>{
                 console.log(error);
-                // setNotifText('Something went wrong! Todos wasn`t added.');
-                // setNotif(true); 
+               
                 // setNotifClass('bad');
                 /* setTimeout(()=>{
                     setNotif(false);  
@@ -151,26 +191,7 @@ console.error("let title",title)
     
         }
         
-        /* function dataGet( ) { 
-        axios.get(`${process.env.API_URL_XHR}/${itemId}`,{
-            method : "GET",
-            headers: {
-                'apptoken': process.env.API_KEY,
-            },
-        })
-        .then(response=>{
-            console.log(response.data)
-            console.log(response.data.title)
-            console.log(response.data.description)
-            console.log(response.data.deadline)
-            
-            
-        })
-
-        .catch(error=>{
-            console.log(error);
-           
-        })} */
+         
         
 }
 
