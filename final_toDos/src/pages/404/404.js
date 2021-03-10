@@ -18,7 +18,7 @@ export default class ErrorPage extends Component{
         return(
             <Col lg={12} className={"some-class"}>
                 <h1>page not found</h1>            
-            <Link to={"/"}>назад</Link>
+            <Link to={"/"}>go to main page</Link>
         </Col>
         )
     }

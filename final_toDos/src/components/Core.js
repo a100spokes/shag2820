@@ -23,6 +23,7 @@ const About  = React.lazy(()=>import(/* webpackChunkName: "todos" */ "@pages/abo
 const ErrorPage  = React.lazy(()=>import(/* webpackChunkName: "404" */ "@pages/404/404"));
 
 import Header from "@elems/Header";
+import Footer from "@elems/Footer";
 import NotificationComp from "@comp/notification/Notification";
 
 import { 
@@ -127,6 +128,11 @@ function Core(props) {
             {/* {
                 createPortal(<div>sas</div>, document.getElementById("modal"))
             } */}
+              {/* <Row> */}
+                    <Col lg={12} md={12}> 
+                         <Footer />
+                    </Col>
+                {/* </Row> */}
         </Router>
     )
 }

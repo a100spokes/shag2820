@@ -22,6 +22,7 @@ import React, { useState } from 'react';
 import { Collapse, Button,Form, FormGroup, Label, Input,} from 'reactstrap';
 
     const AddPostItemForm = (props) => {
+
     const [isOpen, setIsOpen] = useState(false);
     const [notificationStat, setNotif] = useState(false);   
     const [notificationClass, setNotifClass] = useState("good");   
@@ -40,27 +41,9 @@ import { Collapse, Button,Form, FormGroup, Label, Input,} from 'reactstrap';
     return (
     <div>
       {notificationStat ? <Notif status={notificationClass}>{notificationMessage}</Notif> :null} 
-      <Button outline color="warning" onClick={toggle} style={{ marginBottom: '1rem' }}>Add todos here {status}</Button>
+      <Button outline color="warning" onClick={toggle} style={{ marginBottom: '1rem' }} >Add todos here {status}</Button>
 
-      <Collapse isOpen={isOpen}  onEntered={onEntered}   onExited={onExited}>
-        {/* <form onSubmit={submit}>             */}
-            {/* <div><input type={"text"} name={"title"} placeholder={"title"} /></div> */}
-            {/* <div><textarea name={"description"} placeholder={"description"}></textarea></div> */}
-            {/* <div>
-                Done <input type={"radio"} value={1} name={"completed"}/>
-            </div> */}
-            {/*<div>*/}
-            {/*    Undone <input type={"radio"} value={0} name={"completed"}/>*/}
-            {/*</div>*/}
-
-            {/*<div>*/}
-            {/*    Dealine <input type={"date"} name={"dead_line"}/>*/}
-
-            {/*</div>*/}
-       {/*      <div>
-                <button>Отправить</button>
-            </div>
-        </form> */}
+      <Collapse isOpen={isOpen}  onEntered={onEntered}   onExited={onExited}>      
 
             <Form className="mainForm" onSubmit={submit}>   
                 <FormGroup>
@@ -99,7 +82,7 @@ import { Collapse, Button,Form, FormGroup, Label, Input,} from 'reactstrap';
                 <Button>ADD</Button>
             </Form>
 
-        </Collapse>
+       </Collapse>
     </div>
     );
 

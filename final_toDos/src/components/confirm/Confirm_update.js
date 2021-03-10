@@ -11,15 +11,12 @@ import { Form, FormGroup, Label, Input, Button, Modal, ModalHeader, ModalBody, M
     export default function ConfirmUpdate (props) {
 
         const {ok, message, active , cancel, itemId,} = props;
-        ////////////////////////
-        
-        
         
         let titleTab;
         let description;
         let dead_line;
         let comp;
-        /* if(item !=null) { */
+         
             useEffect(()=>{
                 axios.get(`${process.env.API_URL_XHR}/${itemId}`,{ 
                     method: 'GET',
@@ -31,12 +28,12 @@ import { Form, FormGroup, Label, Input, Button, Modal, ModalHeader, ModalBody, M
                 .then(response=>{
                     
                     comp=response.data.completed;
-                    // comp==1?comp=0:comp=1;
-                    console.error("HERE IS COMP",comp);
+                     
+                    // console.error("HERE IS COMP",comp);
                     titleTab=response.data.title;  
-                    console.error(titleTab);
+                    // console.error(titleTab);
                     description=response.data.description;  
-                    console.error(description);
+                    // console.error(description);
                     dead_line=response.data.dead_line;    
                 })
                 .catch(error => console.error(error))
@@ -72,7 +69,7 @@ import { Form, FormGroup, Label, Input, Button, Modal, ModalHeader, ModalBody, M
                             type="textarea" 
                             name="description" 
                             id="exampleText"                             
-                            // defaultValue={"description"}             
+                            defaultValue={description}             
                             // defaultValue={item.id}             
                             // placeholder={"description"}             
                             />
@@ -107,10 +104,10 @@ import { Form, FormGroup, Label, Input, Button, Modal, ModalHeader, ModalBody, M
                 </ModalBody>
 
                         <ModalFooter>                
-                            {/* <ButtonGroup> */}
+                            
                                 <Button color={ok.color} onClick={ok.fn}>{ok.title}</Button>
                                 <Button color="secondary" onClick={cancel}>cancel</Button>
-                            {/* </ButtonGroup> */}
+                             
                         </ModalFooter>
             </Modal>
            
@@ -128,9 +125,7 @@ import { Form, FormGroup, Label, Input, Button, Modal, ModalHeader, ModalBody, M
  ////////////////////
 //  props.submit(data,props.id);
  //////////////////////////
-/*
-* как получить айди из тудус/лист ++++++++++
-*/
+ 
         axios.put(`${process.env.API_URL_XHR}/${itemId}`,data,{ //todos: get from prop
             headers: {
                 'apptoken': process.env.API_KEY,
@@ -145,12 +140,7 @@ import { Form, FormGroup, Label, Input, Button, Modal, ModalHeader, ModalBody, M
             .catch(error=>{
                 console.log(error);
                
-                // setNotifClass('bad');
-                /* setTimeout(()=>{
-                    setNotif(false);  
-                    setNotifClass('good');
-                    setNotifText('done!');
-                },4000); */
+                
             })
     
         }

@@ -8,10 +8,6 @@ import {connect} from "react-redux";
 import Filter from "@comp/filter/Filter";
 import {hideNotification,showNotifFailTodos,showNotifAllOKTodos,showNotifRemove,showNotifRemoveNot,showNotifUpdate,} from "@redux/actions/notification";
 // import data from "@comp/confirm/Confirm_update";
-
-
- 
-
 /* export default */ class TodosList extends Component{
      
     constructor(props) {
@@ -19,28 +15,26 @@ import {hideNotification,showNotifFailTodos,showNotifAllOKTodos,showNotifRemove,
         super(props); 
         this.state = {
             todos: [],
-            sort : "all",
-           /*  cls:"notif" ,    */        
+            sort : "all",                
             loader: true,          
         }
         this.changeStatus = this.changeStatus.bind(this);
         this.removeItem = this.removeItem.bind(this);
         this.updateItem = this.updateItem.bind(this);
         this.filter = this.filter.bind(this);
-        this.sortTodos = this.sortTodos.bind(this);
-        
+        this.sortTodos = this.sortTodos.bind(this);        
     }
    
-    render() {
-        let {tabData, data1, submit} = this.props; 
-
-        let {loader, } = this.state;
-        
+    render() {    
+         
+        let {loader, } = this.state;        
         let todos = this.sortTodos();
+       
+
 
         return(
             <Fragment>            
-                {loader ? <Loader /> : <Row><Filter filterType={this.filter}/><AddPostItemForm /></Row>}   
+                {loader ? <Loader /> : <Row><Filter /* statusAll={all}  statusDone="BBB" statusUndone="1221BBB" */ filterType={this.filter}/><AddPostItemForm /></Row>}   
 
                 {todos.map((item)=> <TodoItem item={item}
                                      remove={this.removeItem}
@@ -54,6 +48,7 @@ import {hideNotification,showNotifFailTodos,showNotifAllOKTodos,showNotifRemove,
     }    
 
    componentDidMount() {
+ 
     setTimeout(()=>{
         axios.get(`${process.env.API_URL_XHR}`,{
             method : "GET",
@@ -62,13 +57,15 @@ import {hideNotification,showNotifFailTodos,showNotifAllOKTodos,showNotifRemove,
             },
         })
             .then(response=>{
+              /*   console.log("TODOSSSS",response.data.data);
+all=response.data.data.length;
+console.error(all); */
                 this.setState({
                     todos : response.data.data,
                     loader: false, // loader: !this.state.loader
-                },()=>{
                     
+                },()=>{                    
                     this.props.showNotifAllOKTodos();                         
-                        
                         setTimeout(()=>{
                             this.props.hideNotification(); 
                         },4000); 
@@ -114,49 +111,21 @@ changeStatus(id) {
             // console.error(title);
             description=response.data.description;  
             // console.error(description);
-            dead_line=response.data.dead_line;  
-            /* this.setState({
-                todos : [...this.state.todos.map(item=>{
-                    if(item.id==id) {
-                        item.completed = !item.completed
-                        console.error('HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH');
-                    }
-                    return item
-                })],
-                
-            }) */
+            dead_line=response.data.dead_line;              
 
             axios.put(`${process.env.API_URL_XHR}/${id}`, {
-                "completed": `${comp}`, 
-                 
-                "title": `${title}`,
-                // "title": "title",
-                // "description": "assa",
-                "description": `${description}`,
-                // "dead_line": "2021-03-17 00:00:00",         
+                "completed": `${comp}`,                  
+                "title": `${title}`,               
+                "description": `${description}`,                       
                 "dead_line": `${dead_line}`,         
         },{
           headers: {
-                          'apptoken': process.env.API_KEY,
+                 'apptoken': process.env.API_KEY,
           }
         })
-            .then(response=>{
-                // console.log(response)    
-                // console.log("title", title);
-                // console.log(data)    
-        
-               /*  this.setState({
-                    todos : [...this.state.todos.map(item=>{
-                        if(item.id==id) {
-                            item.completed = !item.completed
-                            console.error('ZZZZZZZZZZZZ');
-                        }
-                        return item
-                    })],
-                    
-                }) */
-                // updateItem() ;
+            .then(response=>{             
                 this.props.showNotifUpdate(); 
+
                 setTimeout(()=>{
                     this.props.hideNotification(); 
                 },2000); 
@@ -169,13 +138,7 @@ changeStatus(id) {
                 })
         
                     .then(response=>{
-                        this.setState({
-                            /* todos : [...this.state.todos.map(item=>{
-                                if(item.id==id) {
-                                    item.completed = item.completed
-                                }
-                                return item
-                            })], */
+                        this.setState({                           
                             todos : response.data.data,
                         })
                         // console.log(response.data.data);                
@@ -189,68 +152,12 @@ changeStatus(id) {
             
             .catch(error=>{
                 console.log(error);
-        
-              /*   this.props.showNotifRemoveNot(); 
-                console.log(error);
-                
-                setTimeout(()=>{
-                    this.props.hideNotification(); 
-                },2000);      */       
             })   
     })
      
-    .catch(error => console.error(error))
- 
-    // data.set('completed',0);
-   /*  let data = {
-        "completed" : 0,
-      } */
-    // axios.put(`${process.env.API_URL_XHR}/${id}`/* ,data */,{
-   /*  axios.put(`${process.env.API_URL_XHR}/74`/* ,data ,{
-        // completed : 1,
-        headers: {
-            // title : "newItem",
-            'apptoken': process.env.API_KEY,
-        },
-    },{"completed" : 0,},) */
-
-
-    
-    
-    
-    
-   /*  this.setState({
-        todos : [...this.state.todos.map(item=>{
-            if(item.id==id) {
-                item.completed = !item.completed
-            }
-            return item
-        })],
-        
-    })
-    this.props.showNotifUpdate(); 
-    setTimeout(()=>{
-        this.props.hideNotification(); 
-    },2000);  */
+    .catch(error => console.error(error)) 
 }
-/////////////////////////////////////////////////////////////////////////////
-/* changeStatus(id) { 
-    
-    this.setState({
-        todos : [...this.state.todos.map(item=>{
-            if(item.id==id) {
-                item.completed = !item.completed
-            }
-            return item
-        })],
-        
-    })
-    this.props.showNotifUpdate(); 
-    setTimeout(()=>{
-        this.props.hideNotification(); 
-    },2000); 
-} */
-
+///////////////////////////////////////////////////////////////////////////// 
 
    removeItem(id) {
 
@@ -264,6 +171,8 @@ changeStatus(id) {
                 todos : [...this.state.todos.filter(item=>item.id!=id ? true : false)],
                
             })
+    
+            
             this.props.showNotifRemove(); 
             
             setTimeout(()=>{

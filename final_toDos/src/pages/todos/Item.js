@@ -23,7 +23,6 @@ export default class TodoItem extends Component{
     }
     
 
-
     render() {
         let {item,change, remove, update,} = this.props; 
 
@@ -125,9 +124,7 @@ export default class TodoItem extends Component{
                         }
                     }}
                     cancel={this.toggleModalUpdateForm}>
-                    {/* <Row>
-                        <Col lg={12}>This will update item #{item.id}</Col>                   
-                    </Row> */}
+                    
                 </ConfirmUpdate>
             </Card>
         )
