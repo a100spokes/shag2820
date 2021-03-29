@@ -1,4 +1,4 @@
-- # Made on ReactJS. It uses: 
+# Made on ReactJS. It uses: 
 
  - [Webpack](http://reactjs.net/bundling/webpack.html)
  - RouterDOM
