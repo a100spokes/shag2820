@@ -3,7 +3,7 @@
 const lazyImages = document.querySelectorAll('img[data-src], source[data-srcset]');
 const loadMapBlock = document.querySelector('._load-map');
 const windowHeight = document.documentElement.clientHeight;
-const loadMoreBlock = document.querySelector("._load-more");
+const loadMoreBlock = document.querySelector('._load-more');
 // console.log(windowHeight);
 let lazyImagesPosition = [];
 
@@ -25,7 +25,7 @@ function lazyScroll() {
     if (!loadMapBlock.classList.contains('_loaded')) {
         getMap();
     }
-    if (!loadMoreBlock.classList.contains("_loading")) {
+    if (!loadMoreBlock.classList.contains('_loading')) {
         loadMore();
     }
 }
@@ -67,25 +67,25 @@ function loadMore() {
 }
 
 async function getContent() {
-    if (!document.querySelector("._loading-icon")) {
-        loadMoreBlock.insertAdjacentHTML("beforeend",
+    if (!document.querySelector('._loading-icon')) {
+        loadMoreBlock.insertAdjacentHTML('beforeend',
             `<div class="_loading-icon"></div>`
         );
     }
-    loadMoreBlock.classList.add("_loading");
+    loadMoreBlock.classList.add('_loading');
 
-    let response = await fetch("more_data.html", {
-        method: "GET",
+    let response = await fetch('more_data.html', {
+        method: 'GET',
     });
     if (response.ok) {
         let result = await response.text();
-        loadMoreBlock.insertAdjacentHTML("beforeend", result);
-        loadMoreBlock.classList.remove("_loading");
+        loadMoreBlock.insertAdjacentHTML('beforeend', result);
+        loadMoreBlock.classList.remove('_loading');
 
-        if (document.querySelector("._loading-icon")) {
-            document.querySelector("._loading-icon").remove();
+        if (document.querySelector('._loading-icon')) {
+            document.querySelector('._loading-icon').remove();
         }
     } else {
-        alert("ERROR");
+        alert('ERROR');
     }
 }
