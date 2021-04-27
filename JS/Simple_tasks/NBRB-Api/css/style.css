@@ -1,0 +1,51 @@
+body {    
+    margin: 0px;
+    padding: 30px;
+}
+
+input {
+    margin: 5px;
+    padding: 5px;
+    border: 2px solid #b3c9ce;
+    float: left;
+}
+
+select {
+    width: 410px
+    ;
+    margin: 5px;
+    padding: 5px;
+
+    float: left;
+    
+    color: rgb(93, 93, 93);
+    background: rgb(224, 255, 255);
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+label {
+    padding: 10px;
+    font-size: 17px;
+    float: left;
+}
+
+.win {
+    padding: 10px;
+    font-size: 17px;
+    float: left;
+    margin-left: 60px;
+    color: blueviolet;
+}
+
+.win2 {
+    padding: 10px;
+    font-size: 17px;
+    color: blueviolet;
+}
+
+.win1 {
+    padding: 10px;
+    font-size: 17px;
+    float: left;
+}
