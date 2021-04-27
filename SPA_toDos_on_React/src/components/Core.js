@@ -50,7 +50,7 @@ function Core(props) {
                     <Nav tabs className={"menu"} >
                       
                         <NavItem >
-                        <Link to={"/"}>Home</Link> 
+                        <Link to={"/"} activeClassName={"active"}>Home</Link> 
                         </NavItem>
                         <NavItem>
                         <Link to={"/todos"}>Todos</Link>
