@@ -1,0 +1,60 @@
+body {
+  margin: 0px;
+  padding: 20px;
+
+  background-color: #5dd1ff;
+}
+
+.hello {
+  font: bold italic small-caps 150%/1.4 Arial, Helvetica, sans-serif;
+}
+
+.vis {
+  padding: 10px;
+  position: absolute;
+  top: 150px;
+
+  font: 80%/1.4 Arial, Helvetica, sans-serif;
+  color: #7a7a7a;
+}
+
+.vis1 {
+  padding: 10px;
+  position: absolute;
+  top: 120px;
+
+  font: 80%/1.4 Arial, Helvetica, sans-serif;
+  color: #7a7a7a;
+}
+
+input {
+  float: left;
+  width: 180px;
+  padding: 5px;
+  margin: 10px;
+}
+
+select {
+  float: left;
+  padding: 5px;
+  margin-left: 10px;
+  width: 192px;
+}
+
+label {
+  margin-left: 15px;
+}
+
+button {
+  padding: 5px;
+  width: 120px;
+  border-radius: 5px;
+  margin: 15px;
+  background-color: rgb(212, 212, 212);
+}
+
+.check {
+  padding: 0px;
+  margin-right: 20px;
+  width: 15px;
+}
