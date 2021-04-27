@@ -35,7 +35,7 @@
 
       form.addEventListener("submit", (e) => {
           e.preventDefault();
-          let strText = form.elements[0].value.trim();          
+          let strText = form.elements[0].value.trim();
           if (palindrome(strText) == true) {
               box.innerHTML = `<b><font size="13" color="green">Строка является полиндромом!</font></b>             `
           } else if (strText.length == 0) {
@@ -43,7 +43,7 @@
           } else {
               box.innerHTML = `<b><font size="13" color="red">Строка не является полиндромом</font></b>
               `
-          }         
+          }
       });
   }
 

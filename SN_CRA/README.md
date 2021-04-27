@@ -1,3 +1,10 @@
+# I`m still working on it. It`s gonna be kind of social network on Create React App and Redux
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
