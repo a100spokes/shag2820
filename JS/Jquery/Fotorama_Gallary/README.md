@@ -5,4 +5,9 @@
  - Footorama
  - JSON as images storage 
 
+# Quick Start
 
+```
+open index.html with Live Server
+
+```
