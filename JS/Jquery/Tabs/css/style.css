@@ -1,0 +1,69 @@
+body {
+	margin: 0px;
+	padding: 100px;
+
+	background: rgb(61, 72, 109);
+}
+
+.tabs {
+	margin: 0;
+	padding: 0;
+
+	list-style: none;
+	overflow: hidden;
+}
+
+.tabs li {
+	display: block;
+	float: left;
+	padding: 10px;
+	margin-right: 5px;
+	
+	color: rgb(229, 255, 181);
+	background-color: #6d6d6d;
+	border-radius: 1px;
+}
+
+.tabs li.current {
+	color: rgb(49, 49, 49);
+	background-color: rgb(229, 255, 181);
+	font-weight: bold;
+
+	border: rgb(229, 255, 181) 3px solid;
+	border-radius: 2px;
+}
+
+.content {
+	background-color: #6d6d6d;
+	
+	border: rgb(229, 255, 181) 4px solid;
+	border-radius: 6px;
+}
+
+
+.content p {
+	margin: 0;
+	padding: 20px;
+
+	color: rgb(166, 255, 0);
+}
+
+.wrapper {
+	float: left;
+	min-width: 700px;
+	margin-top: 20px;
+}
+
+button {
+	padding: 10px 40px;
+
+	position: relative;
+	top: 270px;
+	right: 700px;
+
+	color: #585858;
+	background-color: #afebb4;
+
+	border: rgb(229, 255, 181) 3px solid;
+	border-radius: 6px;
+}
