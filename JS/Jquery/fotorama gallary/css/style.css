@@ -1,0 +1,77 @@
+body {
+	/*background:red;*/
+	margin:0px;
+	padding:100px 591px;
+	background-color: rgb(13, 12, 29);
+}
+
+
+.flexslider {
+	width: 960px;
+	height: 500px;
+}
+
+.gallery {
+
+}
+
+
+.gallery ul{
+		padding: 0px;
+		list-style: none;
+		display: flex;
+}
+
+.gallery .main{
+		width: 650px;
+		position: relative;
+}
+
+.gallery .main img{
+		width: 100%;
+}
+
+.gallery .main > div{
+		width: 100%;
+		background: rgba(0,0,0,0.5);
+		position: absolute;
+		top:0px;
+		left: 0px;
+		box-sizing: border-box;
+		padding: 10px;
+		color: #fff;
+		display: none;
+}
+
+.gallery .main > div.active {
+	display: block;
+}
+
+
+.gallery ul li{
+		flex: 150px 0 0;
+		margin: 0px 10px;
+}
+
+.gallery ul li img{
+		width: 100%;
+		box-sizing: border-box;
+		border: 1px solid #ccc;
+		padding: 3px;
+		display: inline-block;
+}
+
+.gallery ul li img.active{
+
+		border: 1px solid red;
+}
+
+
+.some {
+	border: 2px solid #ccc;
+	margin-bottom: 10px;
+}
+
+.some.active {
+	border: 2px solid red;
+}
