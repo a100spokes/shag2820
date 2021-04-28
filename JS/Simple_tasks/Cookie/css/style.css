@@ -6,7 +6,7 @@ body {
 }
 
 .hello {
-  font: bold italic small-caps 150%/1.4 Arial, Helvetica, sans-serif;
+  font: bold italic small-caps 150%/1.4 Arial, Helvetica, sans-serif; 
 }
 
 .vis {
@@ -27,22 +27,20 @@ body {
   color: #7a7a7a;
 }
 
-input {
-  float: left;
+input {  
   width: 180px;
   padding: 5px;
   margin: 10px;
 }
 
-select {
-  float: left;
+select {  
   padding: 5px;
-  margin-left: 10px;
+  margin: 10px;
   width: 192px;
 }
 
 label {
-  margin-left: 15px;
+  margin: 15px;
 }
 
 button {
