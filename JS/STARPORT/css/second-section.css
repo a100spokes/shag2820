@@ -1,0 +1,57 @@
+#second-section {
+  background: url("../img/second_section_background.png") no-repeat top center #061727;
+  background-size: cover;
+    padding: 60px 0px;
+}
+
+#second-section .button-container {
+  position: relative;
+  width: 350px;
+  height: auto;
+  top: 16px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+
+}
+
+.logo {
+  padding-top: 16px;
+  text-align: center;
+  font-family: 'Neurpoli', sans-serif;
+}
+.logo h1 {
+  margin-bottom: 0;
+}
+.logo h2 {
+  color: #2e7bbe;
+}
+
+#second-section .labelformat {
+  float: none;
+}
+
+#second-section .style {
+  border-style: none;
+}
+
+#second-section .displaySection {
+  font-size: 1em;
+  border-right: 2px solid #1a4c71;
+}
+
+#second-section .displaySection:last-child {
+  border-right: none;
+}
+
+#second-section .btn-scroll {
+  bottom: -48px;
+}
+
+@media screen and (max-width: 12804px){
+  #second-section {
+    height: auto;
+    position: relative;
+    padding-bottom: 96px;
+  }
+}

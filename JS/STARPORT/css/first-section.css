@@ -1,0 +1,53 @@
+#bgvid {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+}
+
+.btn-scroll {
+  position: relative;
+  left: 50%;
+  bottom: 196px;
+  width: 20px;
+  height: 100px;
+  margin-left: -10px;
+  text-align: center;
+}
+
+.chevron {
+  width: 20px;
+  height: 5px;
+  opacity: 0;
+}
+.chevron:nth-child(1) {
+  animation: move-chevron 3s ease-out 1s infinite;
+}
+
+.chevron:nth-child(2) {
+  animation: move-chevron 3s ease-out 2s infinite;
+}
+
+.chevron:nth-child(3) {
+  animation: move-chevron 3s ease-out 3s infinite;
+}
+
+.chevron:before,
+.chevron:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  background: #fff;
+}
+
+.chevron:before {
+  left: 0;
+  transform: skewY(30deg);
+}
+
+.chevron:after {
+  right: 0;
+  width: 50%;
+  transform: skewY(-30deg);
+}

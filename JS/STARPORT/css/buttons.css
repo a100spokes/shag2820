@@ -1,0 +1,84 @@
+.btn {
+  display: inline-block;
+  appearance: none;
+  border: none;
+  background: none;
+  color: #fff;
+  cursor: pointer;
+  width: 350px;
+  position: relative;
+  padding: 8px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+  transition: all .15s ease;
+}
+
+.btn::before,
+.btn::after {
+  content: '';
+  display: block;
+  position: absolute;
+  right: 0; left: 0;
+  height: calc(50% - 5px);
+  border: 1px solid #1a4c71;
+  transition: all .15s ease;
+}
+
+.btn::before {
+  top: 0;
+  border-bottom-width: 0;
+}
+
+.btn::after {
+  bottom: 0;
+  border-top-width: 0;
+}
+
+.btn_inner {
+  position: relative;
+  display: block;
+  padding: 20px 30px;
+  background-color: #0b1c2999;
+  overflow: hidden;
+}
+
+.btn_slide {
+  display: block;
+  position: absolute;
+  top: 0; bottom: -1px; left: -8px;
+  width: 0;
+  background-color: rgba(60, 30, 100, 0.7);
+  transform: skew(-15deg);
+  transition: all .2s ease;
+}
+
+.btn_content {
+  position: relative;
+}
+
+.btn:hover .btn_slide {
+  width: calc(100% + 15px);
+}
+
+.btn:hover .btn_inner::after {
+  background-color: #0b1c29;
+}
+
+@media only screen and (max-width: 768px) {
+  .button-container {
+    position: relative !important;
+    top: 42px !important;
+    width: 100% !important;
+    text-align: center !important;
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+  }
+  .button-container .btn {
+    margin-bottom: 4px;
+  }
+
+
+}

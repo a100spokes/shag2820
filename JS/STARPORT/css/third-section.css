@@ -1,0 +1,84 @@
+#third-section {
+  background: url("../img/astronaut.png") no-repeat top center #061727;
+  background-size: cover;
+  min-height: 100% !important;
+  z-index: 9999;
+  width: 100vw;
+  height:auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  position: relative;
+}
+
+.info {
+  position: relative;
+  max-width: 960px;
+  width: auto;
+  margin: 0 auto;
+  min-height: auto;
+  padding: 160px 48px;
+}
+
+.footer {
+  float: right;
+  position: relative;
+  /*right: 16px;
+  bottom: 16px;*/
+  background-color: black;
+  width: 100%;
+  padding: 15px;
+}
+
+.column1 {
+  float: left;
+  width: 70%;
+}
+.column2 {
+  float: right;
+  width: 30%;
+}
+
+.row-footer:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#third-section .button-container-two {
+  width: 200px;
+  margin-left: 0;
+}
+
+#third-section .future_date {
+  padding-top: 24px;
+}
+
+#third-section .labelformat {
+  float: none;
+}
+
+#third-section .style {
+  border-style: none;
+}
+
+#third-section .displaySection {
+  font-size: 1em;
+  border-right: 2px solid #1a4c71;
+}
+
+#third-section .displaySection:last-child {
+  border-right: none;
+}
+
+@media only screen and (max-width: 768px) {
+
+  #third-section .button-container-two {
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+
+  #third-section .button-container-two .btn {
+    width: 100% !important;
+  }
+}

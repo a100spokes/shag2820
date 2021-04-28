@@ -1,0 +1,136 @@
+.modal {
+  background: #061727 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  max-width: 850px !important;
+  padding: 40px 30px !important;
+}
+
+.big {
+  background: #061727 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  max-width: 930px !important;
+  padding: 40px 30px !important;
+}
+
+.modalcolumn2 {
+  float: right;
+  width: 60%;
+  text-align: left;
+}
+
+.modalcolumn2 ul {
+  list-style: initial;
+  margin-left: 40px;
+}
+
+.modalcolumn2 li {
+  padding-bottom: 15px;
+}
+
+.modalcolumn1 {
+  float: left;
+  width: 40%;
+  text-align: left;
+}
+
+.modalcolumn1 h3 {
+  text-align: center;
+  margin-bottom: 16px;
+  color: #2e7bbe;
+}
+
+.modalcolumn1 p {
+  text-align: center;
+}
+
+.modalcolumn1 small {
+  color: #aaaaaa;
+  text-align: center;
+}
+
+.row-modal:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.row-modal h2 {
+  text-align: center;
+  padding-bottom: 60px;
+  font-size: 35px;
+}
+
+#more {
+  display: none;
+}
+#more1 {
+  display: none;
+}
+#more2 {
+  display: none;
+}
+
+.modal-button {
+  float: left;
+  width: 100%;
+  text-align: left;
+}
+
+.modal-button ul {
+  list-style: initial;
+  margin-left: 40px;
+}
+
+.modal-button li {
+  padding-bottom: 15px;
+}
+
+.modal-button p {
+  text-align: center;
+  padding: 15px 0px 15px 0px;
+}
+
+.modal-button span {
+  display: inline-block;
+  appearance: none;
+  border: none;
+  background: none;
+  color: #fff;
+  cursor: pointer;
+  width: 100%;
+  position: relative;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+  transition: all 0.15s ease;
+}
+
+.modal-button span::before,
+.modal-button span::after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 0;
+  left: 0;
+  height: calc(50% - 5px);
+  border: 1px solid #1a4c71;
+  transition: all 0.15s ease;
+}
+
+.modal-button span::before {
+  top: 0;
+  border-bottom-width: 0;
+}
+
+.modal-button span::after {
+  bottom: 0;
+  border-top-width: 0;
+}
+
+.blocker {
+  z-index: 9999 !important;
+}
