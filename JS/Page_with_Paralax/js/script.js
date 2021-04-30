@@ -56,25 +56,25 @@ window.onload = function () {
         });
 
         //Scroll parallax
-let thresholdSets = [];
-for (let i = 0; i<=1.0; i+=0.005) {
-    thresholdSets.push(i);
-}
-const callback = function(enteriers, observer) {
-    const scrollTopProcent = window.pageYOffset / parallax.offsetHeight*100;
-    setParallaxItemStyle(scrollTopProcent);
-};
-const observer = new IntersectionObserver(callback,{
-    threshold: thresholdSets
-});
+        let thresholdSets = [];
+        for (let i = 0; i <= 1.0; i += 0.005) {
+            thresholdSets.push(i);
+        }
+        const callback = function (enteriers, observer) {
+            const scrollTopProcent = window.pageYOffset / parallax.offsetHeight * 100;
+            setParallaxItemStyle(scrollTopProcent);
+        };
+        const observer = new IntersectionObserver(callback, {
+            threshold: thresholdSets
+        });
 
-observer.observe(document.querySelector('.content'));
+        observer.observe(document.querySelector('.content'));
 
-function setParallaxItemStyle(scrollTopProcent) {
-   content.style.cssText = `transform: translate(0%,-${scrollTopProcent/9}%);`;
-   mountains.parentElement.style.cssText = `transform: translate(0%, -${scrollTopProcent/6}%);`;
-   human.parentElement.style.cssText = `transform: translate(0%, -${scrollTopProcent/3}%);`;
-}
+        function setParallaxItemStyle(scrollTopProcent) {
+            content.style.cssText = `transform: translate(0%,-${scrollTopProcent/9}%);`;
+            mountains.parentElement.style.cssText = `transform: translate(0%, -${scrollTopProcent/6}%);`;
+            human.parentElement.style.cssText = `transform: translate(0%, -${scrollTopProcent/3}%);`;
+        }
 
     }
 

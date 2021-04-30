@@ -124,18 +124,18 @@ body {
 }
 
 .images-parallax__clouds {
-    background-image: url("../images/1") top/ cover no-repeat;
+    background: url("../images/3.png") top/ cover no-repeat;
 }
 
 .images-parallax__mountains {
-    background: url("../images/2") top/ cover no-repeat;
-    top: 15%;
+    background: url("../images/2.png") top/ cover no-repeat;
+    top: -1%;
     z-index: 2;
 }
 
 .images-parallax__human {
-    background: url("../images/3") top/ cover no-repeat;
-    top: 45%;
+    background: url("../images/1.png") top/ cover no-repeat;
+    top: -3%;
     z-index: 3;
 }
 
@@ -175,31 +175,31 @@ body {
     line-height: 150%
 }
 
-.content__text p{
+.content__text p {
     margin: 0px 0px 30px 0px;
 
 }
 
-@media (max-width: 767px){
-    .parallax__title{
-        font-size:  50px;
+@media (max-width: 767px) {
+    .parallax__title {
+        font-size: 50px;
     }
 
-    .parallax__lable{
-        font-size:  16px;
-    margin: 0px 0px 15px 0px;
+    .parallax__lable {
+        font-size: 16px;
+        margin: 0px 0px 15px 0px;
 
     }
 }
 
-@media (max-width: 479px){
-    .parallax__title{
-        font-size:  36px;
+@media (max-width: 479px) {
+    .parallax__title {
+        font-size: 36px;
     }
 
-    .parallax__lable::before{
+    .parallax__lable::before {
         flex: 0 0 50px;
-    margin: 0px 10px 0px 0px;
+        margin: 0px 10px 0px 0px;
 
     }
 }
