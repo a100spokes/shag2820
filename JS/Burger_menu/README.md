@@ -1,11 +1,11 @@
-# This lazy loading page made with grids .
+# This responsive page.
 
- - Simulates async request 
+ - Different layouts for mobile and desktop devices 
 
 # Quick Start
 
 ```
 - run dev tools in browser window
-- set speed connection to low for lazy loader showing 
+- choose device toolbar and add one off the list 
 
 ```
