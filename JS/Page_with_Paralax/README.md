@@ -1,11 +1,9 @@
-# This lazy loading page made with grids .
-
- - Simulates async request 
+# Page with parallax effect
+ - Made with JS
 
 # Quick Start
 
 ```
-- run dev tools in browser window
-- set speed connection to low for lazy loader showing 
+- run index.html in browser  
 
 ```
