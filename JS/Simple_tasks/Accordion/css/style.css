@@ -1,0 +1,89 @@
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+.container {
+  width: 1260px;
+  margin: 40px auto;
+}
+
+.list {
+  width: 100%;
+  display: inline-block;
+  margin: 0, auto;
+}
+
+dt {
+  position: relative;
+  background-color: rgb(66, 66, 66);
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+  color: seashell;
+  font-size: 25px;
+}
+
+dt.active {
+  background-color: rgb(52, 46, 87);
+}
+
+dt::after {
+  position: absolute;
+  right: 20px;
+  content: "\2228";
+  cursor: pointer;
+}
+
+dt.active::after {
+  position: absolute;
+  right: 20px;
+  content: "\2227";
+  cursor: pointer;
+}
+
+dt:hover::after {
+  animation: anim 0.5s infinite linear;
+}
+
+dt:hover {
+  background-color: rgb(39, 39, 39);
+  cursor: pointer;
+}
+
+dt.active:hover {
+  background-color: rgb(98, 87, 161);
+}
+
+dd {
+  display: none;
+}
+
+dd.active {
+  margin: 0;
+  background-color: rgb(241, 241, 241);
+  padding: 10px;
+  font-size: 20px;
+  display: block;
+  animation: blockDD 1s;
+}
+
+@keyframes anim {
+  from {
+    top: 10px;
+  }
+  to {
+    top: 11px;
+  }
+}
+
+@keyframes blockDD {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
