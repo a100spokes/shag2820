@@ -1,0 +1,239 @@
+.list {}
+
+.list li {
+    padding: 5px;
+    border: 1px solid transparent;
+}
+
+body {
+    margin: 0px;
+    padding: 40px;
+    
+}
+
+.list li {
+    list-style: none;
+    width: 120px;
+    text-align: center;
+    border-radius: 4px;
+    margin-top: 10px;
+    border: 1px solid rgb(69, 163, 82);
+    box-sizing: border-box;
+}
+.list li:hover {
+    transform: scale(0.9);
+    transition-duration: 0.5s;
+    cursor: pointer;
+}
+
+.active {
+    position: relative;
+    list-style: none;
+    width: 120px;
+    text-align: center;
+    border-radius: 4px;
+    margin-top: 10px;
+    border: 1px solid rgb(69, 163, 82);
+    box-sizing: border-box;
+    background-color: rgb(114, 250, 132);
+}
+
+.addBtn {
+    display: inline-block;
+    margin: 30px 40px;
+    text-align: center;
+    padding: 10px;
+    background-color: rgb(81, 172, 170);
+    width: 120px;
+    border-radius: 4px;
+    border: 1px solid rgb(69, 163, 82);
+    box-sizing: border-box;
+    color: beige;
+}
+
+.inactiveBtn1 {
+    display: inline-block;
+    margin-top: 30px;
+    margin-left: 130px;
+    text-align: center;
+    padding: 10px;
+    background-color: rgb(160, 160, 160);
+    width: 120px;
+    border-radius: 4px;
+   color: beige;    
+    box-sizing: border-box;
+}
+
+.inactiveBtn2 {
+    display: inline-block;
+    margin: 30px 20px;
+    text-align: center;
+    padding: 10px;
+    background-color: rgb(160, 160, 160);
+    width: 120px;
+    border-radius: 4px;
+    color: beige;
+    box-sizing: border-box;
+}
+
+.addBtn:hover {
+    background-color: rgb(102, 223, 221);
+    transform: scale(1.1);
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+.sortUpButn {
+    display: inline-block;
+    margin-top: 30px;
+    margin-left: 130px;
+    text-align: center;
+    padding: 10px;
+    background-color: rgb(172, 81, 81);
+    width: 120px;
+    border-radius: 4px;
+    border: 1px solid rgb(121, 55, 55);
+    color: beige;
+    box-sizing: border-box;
+}
+
+.sortUpButn:hover {
+    background-color: rgb(231, 95, 95);
+    transform: scale(1.1);
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+.sortDwButn {
+    display: inline-block;
+    margin: 30px 20px;
+    text-align: center;
+    padding: 10px;
+    background-color: rgb(75, 158, 64);
+    width: 120px;
+    border-radius: 4px;
+    border: 1px solid rgb(38, 80, 33);
+    box-sizing: border-box;
+    color: beige;
+}
+
+.sortDwButn:hover {
+    background-color: rgb(101, 224, 85);
+    transform: scale(1.1);
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+.menuHead {
+    background-color: white;
+    border: 1px solid rgb(69, 163, 82);
+    padding: 10px;
+}
+
+.modal {
+    position: absolute;
+    display: inline-block;
+    margin: 30px 40px;
+    text-align: center;
+    background-color: rgb(81, 172, 170);
+    width: 160px;
+    border-radius: 4px;
+    border: 1px solid rgb(69, 163, 82);
+    box-sizing: border-box;
+    top: -30px;
+    left: 81px;
+}
+
+.modalNo {
+    display: none;
+}
+
+.addColClass {
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
+    background-color: rgb(108, 208, 238);
+    width: 120px;
+    border-radius: 4px;
+    border: 1px solid rgb(79, 151, 173);
+    box-sizing: border-box;
+}
+
+.sumClearClass {
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
+    background-color: rgb(190, 190, 190);
+    width: 120px;
+    border-radius: 4px;
+}
+
+.TextClass {
+    display: inline-block;
+    padding: 10px;
+    border: 1px solid rgb(79, 151, 173);
+    width: 160px;
+    border-radius: 14px;
+    margin-left: 40px;
+}
+
+.sumClearClassActive {
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
+    background-color: rgb(255, 83, 92);
+    width: 120px;
+    border-radius: 4px;
+    border: 1px solid rgb(79, 151, 173);
+}
+
+.sumClearClassActive:hover {
+    background-color: rgb(255, 17, 29);
+}
+
+.addColClass:hover {
+    background-color: rgb(85, 162, 185);
+}
+
+.sumBoxClass {
+    margin-left: 40px;
+    display: inline-block;
+}
+
+.sumWinClass {
+    display: inline-block;
+    margin-right: 5px;
+    width: 48px;
+    background-color: rgb(243, 243, 243);
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid rgb(173, 79, 157);
+    box-sizing: border-box;
+}
+
+.sumTextClass {
+    display: inline-block;
+    padding: 10px;
+}
+
+.delBtn {
+    background-color: brown;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: block;
+    top: 0px;
+    left: 8px;
+    text-align: center;
+    color: white;
+    font-size: 35px;
+    font-weight: 900;
+    position: relative;
+}
+
+.cls {
+    float: left;
+    display: block;
+    background-color: aqua;
+    width: 100px;
+}
