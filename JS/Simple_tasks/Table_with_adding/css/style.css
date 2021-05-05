@@ -1,0 +1,141 @@
+body {
+  margin: 0px;
+  padding: 40px;
+}
+
+.addRowClass {
+  display: inline-block;
+  margin: 30px 40px;
+  text-align: center;
+  padding: 10px;
+  background-color: rgb(114, 250, 132);
+  width: 120px;
+  border-radius: 4px;
+  border: 1px solid rgb(69, 163, 82);
+  box-sizing: border-box;
+}
+
+.addRowClass:hover {
+  background-color: rgb(81, 172, 93);
+}
+
+.addColClass {
+  display: inline-block;
+  text-align: center;
+  padding: 10px;
+  background-color: rgb(108, 208, 238);
+  width: 120px;
+  border-radius: 4px;
+  border: 1px solid rgb(79, 151, 173);
+  box-sizing: border-box;
+}
+
+.sumClearClass {
+  display: inline-block;
+  text-align: center;
+  padding: 10px;
+  background-color: rgb(190, 190, 190);
+  width: 120px;
+  border-radius: 4px;
+}
+
+.TextClass {
+  display: inline-block;
+  padding: 10px;
+  border: 1px solid rgb(79, 151, 173);
+  width: 160px;
+  border-radius: 14px;
+  margin-left: 40px;
+}
+
+.sumClearClassActive {
+  display: inline-block;
+  text-align: center;
+  padding: 10px;
+  background-color: rgb(255, 83, 92);
+  width: 120px;
+  border-radius: 4px;
+  border: 1px solid rgb(79, 151, 173);
+}
+
+.sumClearClassActive:hover {
+  background-color: rgb(255, 17, 29);
+}
+
+.addColClass:hover {
+  background-color: rgb(85, 162, 185);
+}
+
+.sumBoxClass {
+  margin-left: 40px;
+  display: inline-block;
+}
+
+.sumWinClass {
+  display: inline-block;
+  margin-right: 5px;
+  width: 48px;
+  background-color: rgb(243, 243, 243);
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid rgb(173, 79, 157);
+  box-sizing: border-box;
+}
+
+.sumTextClass {
+  display: inline-block;
+  padding: 10px;
+}
+
+.table {
+  padding: 5px;
+}
+
+tr {
+  position: relative;
+  background-color: aqua;
+}
+
+.table td {
+  border: 3px solid rgb(17, 110, 14);
+  text-align: center;
+  width: 65px;
+  font-size: 50px;
+  background: rgb(185, 255, 194);
+}
+
+.table td.del {
+  border: 3px solid rgb(255, 255, 255);
+  background: rgb(255, 255, 255);
+}
+
+.table td.dela {
+  border: 3px solid rgb(255, 0, 0);
+  background: rgb(255, 255, 255);
+}
+
+.table td.diag {
+  background: rgb(128, 127, 123);
+}
+
+.delBtn {
+  background-color: brown;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: block;
+  top: 0px;
+  left: 8px;
+  text-align: center;
+  color: white;
+  font-size: 35px;
+  font-weight: 900;
+  position: relative;
+}
+
+.cls {
+  float: left;
+  display: block;
+  background-color: aqua;
+  width: 100px;
+}
