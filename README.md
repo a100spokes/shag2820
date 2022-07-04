@@ -4,7 +4,7 @@
  - [JS](https://github.com/a100spokes/shag2820/tree/master/JS) - here are stored various interesting solutions that I useded in practice.
  - [Simple_tasks](https://github.com/a100spokes/shag2820/tree/master/JS/Simple_tasks) - different simple solutions are stored here.
  - [HTML&CSS](https://github.com/a100spokes/shag2820/tree/master/HTML%26CSS) - layouts stored here.
- - [SN_CRA](https://github.com/a100spokes/shag2820/tree/master/SN_CRA) - here is a social network based on react, which I work on in my free time to better learn the framework.
+ - [REACT](https://github.com/a100spokes/shag2820/tree/master/React) - here is a few react projects including social network based on react, which I work on in my free time to better learn the framework.
  
  
 
