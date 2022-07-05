@@ -28,12 +28,11 @@ const FinishedQuiz = props => {
                ) 
             })}          
         </ul>
-        <p>RIght {succesCount} of {props.quiz.length}</p>
+        <p>Right answers {succesCount} of {props.quiz.length}</p>
 
         <div>
-            <Button onClick={props.onRetry} type='primary'>Retry </Button>
-            <Button type='success'>To all tests</Button>
-            {/* <button onClick={props.onRetry}>Retry</button> */}
+            <Button onClick={props.onRetry} type='primary'>Retry</Button>
+            <Button onClick={props.onAll} type='success'>To all tests</Button>            
         </div>
         </div>
     )

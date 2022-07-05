@@ -4,14 +4,17 @@
     flex-grow: 1;
     width: 100%;
     padding-top: 100px;
-    background: linear-gradient(90deg, rgb(0, 179, 255) 0%, rgb(0, 255, 191) 100%);
+    background: linear-gradient(0deg, #87C38F, #F4F0BB);
 }
 
 .Quiz h1 {
-    color: rgb(243, 251, 255);
     margin-left: 10px;
+    color: #1b4079;
+    text-align: center;
 }
 
 .QuizWrapper {
-    width: 600px;
+    width: 70vh;
+    min-width:350px;
+    margin-top: 115px;
 }
