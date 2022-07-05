@@ -2,7 +2,7 @@
     display: inline-block;
     padding: 10px 20px;
     border-radius: 5px;
-    /* border: 1px solid black; */
+    border: 1px solid #1B4079;
     color: black;
     margin-right: 15px;
     text-transform: uppercase;
@@ -19,7 +19,7 @@
 }
 
 .Button:hover {
-    background-color: rgb(21, 235, 153);
+    background-color: rgb(15, 184, 119);
 }
 
 .Button:disabled {
@@ -37,6 +37,6 @@
 }
 
 .primary {
-    background-color: rgb(17, 179, 117);
+    background-color: #226F54;
     color: antiquewhite;
 }

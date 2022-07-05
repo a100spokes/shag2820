@@ -2,7 +2,6 @@ import React, {Component} from "react"
 import classes from './Quiz.module.css'
 import ActiveQuiz from "../../components/ActiveQuiz/ActiveQuiz"
 import FinishedQuiz from "../../components/ActiveQuiz/FinishedQuiz/FinishedQuiz"
-
 class Quiz extends Component {
     state = {
         results: {},
@@ -11,27 +10,58 @@ class Quiz extends Component {
         answerState: null,
         quiz: [
             {
-                question: 'What color is sky?',
+                question: 'What year was the very first model of the iPhone released?',
                 rightAnswerId: 2,
                 id: 1,
                 answers: [
-                    {text: 'Black', id:1},
-                    {text: 'Blue', id:2},
-                    {text: 'Green', id:3},
-                    {text: 'Yellow', id:4},
+                    {text: '2008', id:1},
+                    {text: '2007', id:2},
+                    {text: '2005', id:3},
+                    {text: '2003', id:4},
                 ]
             },
             {
-                question: 'What color is a waater?',
+                question: 'What’s the shortcut for the “copy” function on most computers?',
                 rightAnswerId: 1,
                 id: 2,
                 answers: [
-                    {text: 'Black', id:1},
-                    {text: 'Blue', id:2},
-                    {text: 'Green', id:3},
-                    {text: 'Yellow', id:4},
+                    {text: 'ctrl c', id:1},
+                    {text: 'ctrl f', id:2},
+                    {text: 'ctrl v', id:3},
+                    {text: 'alt c', id:4},
                 ]
-            }
+            },
+            {
+                question: 'Is Java a type of OS?',
+                rightAnswerId: 1,
+                id: 3,
+                answers: [
+                    {text: 'No', id:1},
+                    {text: 'Yes', id:2},                
+                ]
+            },
+            {
+                question: 'What is meteorology the study of?',
+                rightAnswerId: 3,
+                id: 4,
+                answers: [
+                    {text: 'The nature', id:1},
+                    {text: 'The mountains', id:2},                
+                    {text: 'The weather', id:3},                
+                    {text: 'The metals', id:4},                
+                ]
+            },
+            {
+                question: 'Which planet is the hottest in the solar system?',
+                rightAnswerId: 4,
+                id: 4,
+                answers: [
+                    {text: 'Earth', id:1},
+                    {text: 'Jupiter', id:2},                
+                    {text: 'Mars', id:3},                
+                    {text: 'Venus', id:4},                
+                ]
+            },
         ]
     }
 
@@ -95,14 +125,15 @@ class Quiz extends Component {
         return (
             <div className={classes.Quiz}>
                 <div className={classes.QuizWrapper}>
-                <h1>Answer all question</h1>
+                <h1>Technology & Science Trivia Questions</h1>
                 {
                 this.state.isFinished
                 ? <FinishedQuiz
                 results = {this.state.results}
                 quiz = {this.state.quiz}
-                onRetry = {this.RetryHandler}
+                onRetry = {this.RetryHandler}              
                 /> :
+
                 <ActiveQuiz
                 answers={this.state.quiz[this.state.activeQuestion].answers}
                 question={this.state.quiz[this.state.activeQuestion].question}
