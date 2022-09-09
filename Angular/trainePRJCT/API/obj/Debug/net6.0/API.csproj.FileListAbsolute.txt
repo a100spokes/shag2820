@@ -80,3 +80,9 @@ D:\dev-react\Angular\trainePRJCT\api\bin\Debug\net6.0\runtimes\win-x64\native\e_
 D:\dev-react\Angular\trainePRJCT\api\bin\Debug\net6.0\runtimes\win-x86\native\e_sqlite3.dll
 D:\dev-react\Angular\trainePRJCT\api\bin\Debug\net6.0\Humanizer.dll
 D:\dev-react\Angular\trainePRJCT\api\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\dev-react\Angular\trainePRJCT\API\bin\Debug\net6.0\client\angular.json
+D:\dev-react\Angular\trainePRJCT\API\bin\Debug\net6.0\client\package-lock.json
+D:\dev-react\Angular\trainePRJCT\API\bin\Debug\net6.0\client\package.json
+D:\dev-react\Angular\trainePRJCT\API\bin\Debug\net6.0\client\tsconfig.app.json
+D:\dev-react\Angular\trainePRJCT\API\bin\Debug\net6.0\client\tsconfig.json
+D:\dev-react\Angular\trainePRJCT\API\bin\Debug\net6.0\client\tsconfig.spec.json

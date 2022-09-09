@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FlQATRSADZ6elhRiOxEO8nbXmR6g9LcGcTAIsjPx00WZmJMrscqbrtuo7x/ypFDgsyooRUIppOzIBZKkiGy7vQ==",
+  "dgSpecHash": "37w5n8dkjiQjPDqM6sNX81uvEEMiOgfLzBZxnZWNgiLElSSKP38fhcijqBAXT6ImWLoT1swrVIoBkH2ZzfA4Tg==",
   "success": true,
-  "projectFilePath": "D:\\dev-react\\Angular\\trainePRJCT\\api\\API.csproj",
+  "projectFilePath": "D:\\dev-react\\Angular\\trainePRJCT\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vatot\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\vatot\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
