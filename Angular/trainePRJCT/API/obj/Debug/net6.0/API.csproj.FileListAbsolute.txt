@@ -86,3 +86,5 @@ D:\dev-react\Angular\trainePRJCT\API\bin\Debug\net6.0\client\package.json
 D:\dev-react\Angular\trainePRJCT\API\bin\Debug\net6.0\client\tsconfig.app.json
 D:\dev-react\Angular\trainePRJCT\API\bin\Debug\net6.0\client\tsconfig.json
 D:\dev-react\Angular\trainePRJCT\API\bin\Debug\net6.0\client\tsconfig.spec.json
+D:\dev-react\Angular\trainePRJCT\API\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+D:\dev-react\Angular\trainePRJCT\API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
