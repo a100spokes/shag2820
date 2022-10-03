@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\dev-react\\Angular\\trainePRJCT\\API\\API.csproj": {}
+    "D:\\dev-react\\Angular\\trainePRJCT\\API\\API.csproj": {}
   },
   "projects": {
-    "d:\\dev-react\\Angular\\trainePRJCT\\API\\API.csproj": {
+    "D:\\dev-react\\Angular\\trainePRJCT\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\dev-react\\Angular\\trainePRJCT\\API\\API.csproj",
+        "projectUniqueName": "D:\\dev-react\\Angular\\trainePRJCT\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "d:\\dev-react\\Angular\\trainePRJCT\\API\\API.csproj",
+        "projectPath": "D:\\dev-react\\Angular\\trainePRJCT\\API\\API.csproj",
         "packagesPath": "C:\\Users\\vatot\\.nuget\\packages\\",
-        "outputPath": "d:\\dev-react\\Angular\\trainePRJCT\\API\\obj\\",
+        "outputPath": "D:\\dev-react\\Angular\\trainePRJCT\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\vatot\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -21,6 +21,7 @@
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
