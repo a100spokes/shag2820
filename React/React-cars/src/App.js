@@ -5,10 +5,11 @@ import {
   Routes,
   Route,
   NavLink,
+   
 } from "react-router-dom";
 import About from './About/About'
 import Cars from './Cars/Cars'
-
+import CarDetail from './CarDetail/CarDetail';
 class App extends Component {
   render() {
 
@@ -22,11 +23,11 @@ class App extends Component {
               <NavLink to="/">Home</NavLink>               
             </li>
             <li>              
-              <NavLink to="/about" exact className={({ isActive }) => (isActive ? 'wfm-active' : ' ')} >About</NavLink> 
+              <NavLink to="/about"  className={({ isActive }) => (isActive ? 'wfm-active' : ' ')} >About</NavLink> 
             </li>
             <li>
               <NavLink to="/cars"  >Cars</NavLink>                
-              {/* <NavLink to={{
+              {/* <NavLink to={{ 
                 pathname:"/cars#",
                 // pathname: '/cars ',
                 search: '?some=search-string',
@@ -40,17 +41,15 @@ class App extends Component {
 
         <hr/>      
        
-        {/* <BrowserRouter> */}
+ 
           <Routes>
-            <Route path="/" element={<h1>Home</h1>} />                 
-          </Routes>
-          <Routes>
-            <Route path="/about" element={<About />} />                 
-          </Routes>
-          <Routes>
+            <Route path="/" element={<h1>Home</h1>} />
+            <Route path="/about" element={<About />} />
             <Route path="/cars" element={<Cars />} />                 
+            {/* <Route path="/cars/:name" element={<CarDetail />} />                  */}
+            <Route path="/cars/:name" element={<CarDetail name='sss'/>} />                 
           </Routes>
-       {/* </BrowserRouter> */}
+       
       </div>
       </BrowserRouter>
 
